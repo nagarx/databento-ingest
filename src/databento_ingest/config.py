@@ -115,7 +115,8 @@ def load_dataset_config(config_path: Path) -> IngestConfig:
         IngestConfig with all sections populated
 
     Raises:
-        SystemExit: If config file doesn't exist or has validation errors
+        FileNotFoundError: If config file does not exist
+        ValueError: If config fails validation (see validate_config())
     """
     if not config_path.exists():
         raise FileNotFoundError(f"Config file not found: {config_path}")

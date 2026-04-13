@@ -661,6 +661,9 @@ def download_job(
         parallel: Number of parallel downloads (default: PARALLEL_DOWNLOADS = 4)
         dataset: Databento dataset identifier for our manifest metadata
         schema: Data schema for our manifest metadata
+        http_timeout: (connect, read) timeouts in seconds. Default: DEFAULT_HTTP_TIMEOUT
+        estimated_speed_mbs: Estimated speed in MB/s for pre-download ETA.
+            Default: DEFAULT_ESTIMATED_SPEED_MBS
 
     Returns:
         List of downloaded file paths
@@ -842,6 +845,8 @@ def download_job(
             date_range=date_range,
             files=[Path(f).name for f in downloaded],
             metadata={
+                "ingest_tool_version": __version__,
+                "databento_api_version": DATABENTO_API_VERSION,
                 "job_id": job_id,
                 "total_size_bytes": total_size,
                 "failed_files": failed,

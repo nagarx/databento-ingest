@@ -194,9 +194,13 @@ Every downloaded dataset produces a `manifest.json` (our format, distinct from D
     "opra-pillar-20251113.cmbp-1.dbn.zst": "sha256_hex..."
   },
   "metadata": {
+    "ingest_tool_version": "0.2.0",
+    "databento_api_version": 0,
     "job_id": "OPRA-20260305-FP53NRH898",
     "total_size_bytes": 298700000000,
+    "failed_files": [],
     "download_speed_mbps": 35.1,
+    "download_elapsed_seconds": 8520.3,
     "parallel_connections": 2
   }
 }
@@ -204,7 +208,17 @@ Every downloaded dataset produces a `manifest.json` (our format, distinct from D
 
 **Required fields**: `schema_version`, `symbol`, `dataset`, `source`, `download_method`, `date_range`, `download_timestamp`, `file_count`, `files`.
 
-**Optional fields**: `schema`, `checksums`, `metadata`.
+**Optional fields**: `schema` (omitted when `None`). `checksums` and `metadata` are always written by `create_manifest()` (default to `{}`) but `validate_manifest()` does not require them to be present.
+
+**Metadata fields written by the downloader** (all present when `download_job()` creates the manifest):
+- `ingest_tool_version`: Version of the databento-ingest tool (from `__version__`). Enables multi-year reproducibility.
+- `databento_api_version`: Databento API version (from `DATABENTO_API_VERSION`). Detects upstream API schema changes.
+- `job_id`: Databento batch job ID.
+- `total_size_bytes`: Sum of expected file sizes (int).
+- `failed_files`: List of filenames that failed to download (empty list on success).
+- `download_speed_mbps`: Average speed over newly-downloaded bytes (float, 2 decimals).
+- `download_elapsed_seconds`: Wall-clock elapsed time for the parallel download phase (float, 1 decimal).
+- `parallel_connections`: Number of parallel connections used (int).
 
 **Invariant**: `file_count == len(files)`.
 

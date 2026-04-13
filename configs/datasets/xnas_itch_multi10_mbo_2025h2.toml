@@ -1,0 +1,24 @@
+# 10-stock XNAS.ITCH MBO download for multi-asset pipeline validation
+# Symbols: CRSP, DKNG, FANG, HOOD, IBKR, ISRG, MRNA, PEP, SNAP, ZM
+# Period: Jul 2025 - Jan 2026 (134 trading days, 1340 files, ~13.7 GB)
+# Job: XNAS-20260404-S4T6JN3RHU
+# Per-symbol daily files (split_symbols=true, split_duration=day)
+# File pattern: xnas-itch-{DATE}.mbo.{SYMBOL}.dbn.zst
+
+[source]
+method = "https"
+job_id = "XNAS-20260404-S4T6JN3RHU"
+manifest_path = "jobs/XNAS-20260404-S4T6JN3RHU/manifest.json"
+
+[dataset]
+name = "XNAS.ITCH"
+schema = "mbo"
+symbol = "CRSP,DKNG,FANG,HOOD,IBKR,ISRG,MRNA,PEP,SNAP,ZM"
+start_date = "2025-07-01"
+end_date = "2026-01-09"
+
+[storage]
+output_dir = "data/XNAS_ITCH/multi_10stock_mbo_2025-07-01_to_2026-01-09"
+
+[download]
+parallel = 2

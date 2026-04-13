@@ -1,0 +1,22 @@
+# XNAS.BASIC CMBP-1 for NVDA, Feb 2025 - Jan 2026
+# Nasdaq BBO quotes + FINRA TRF off-exchange trades
+# 235 files, ~23.66 GB compressed (99.7 GB uncompressed)
+# Aligns with XNAS.ITCH MBO dataset in data/hot_store/
+
+[source]
+method = "https"
+job_id = "XNAS-20260310-C8FXJQQMNP"
+manifest_path = "jobs/XNAS-20260310-C8FXJQQMNP/manifest.json"
+
+[dataset]
+name = "XNAS.BASIC"
+schema = "cmbp-1"
+symbol = "NVDA"
+start_date = "2025-02-03"
+end_date = "2026-01-09"
+
+[storage]
+output_dir = "data/XNAS_BASIC/NVDA/cmbp1_2025-02-03_to_2026-01-09"
+
+[download]
+parallel = 4

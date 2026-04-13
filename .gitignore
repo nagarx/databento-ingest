@@ -1,0 +1,24 @@
+# Credentials — NEVER commit
+credentials.toml
+
+# Databento job artifacts (contain API-specific URLs, local data)
+jobs/
+
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# macOS metadata
+.DS_Store
+
+# Download output (can be hundreds of GB)
+data/
+
+# Python build artifacts
+dist/
+build/

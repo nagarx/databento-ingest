@@ -1,0 +1,23 @@
+# ARCX.PILLAR MBO for NVDA, Feb 2025 - Jan 2026
+# NYSE Arca full depth-of-book: order adds, modifies, cancels, fills, trades
+# 233 files, ~23.27 GB compressed (76.8 GB uncompressed)
+# Covers ~7.1% of NVDA daily volume with true aggressor side
+# Aligns with XNAS.ITCH MBO dataset in data/hot_store/
+
+[source]
+method = "https"
+job_id = "ARCX-20260310-SL7HXGYF75"
+manifest_path = "jobs/ARCX-20260310-SL7HXGYF75/manifest.json"
+
+[dataset]
+name = "ARCX.PILLAR"
+schema = "mbo"
+symbol = "NVDA"
+start_date = "2025-02-03"
+end_date = "2026-01-07"
+
+[storage]
+output_dir = "data/ARCX_PILLAR/NVDA/mbo_2025-02-03_to_2026-01-07"
+
+[download]
+parallel = 4

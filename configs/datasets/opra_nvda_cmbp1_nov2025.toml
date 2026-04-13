@@ -1,0 +1,21 @@
+# OPRA CMBP-1 options data for NVDA, Nov 13-25 2025
+# Schema: CMBP-1 (consolidated best bid/ask)
+# 8 files, ~278 GB total
+
+[source]
+method = "https"
+job_id = "OPRA-20260305-FP53NRH898"
+manifest_path = "jobs/OPRA-20260305-FP53NRH898/manifest.json"
+
+[dataset]
+name = "OPRA"
+schema = "cmbp-1"
+symbol = "NVDA"
+start_date = "2025-11-13"
+end_date = "2025-11-25"
+
+[storage]
+output_dir = "data/OPRA/NVDA/cmbp1_2025-11-13_to_2025-11-25"
+
+[download]
+parallel = 2

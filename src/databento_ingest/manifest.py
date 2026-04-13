@@ -1,0 +1,173 @@
+"""Manifest creation, reading, and validation for downloaded datasets.
+
+Every downloaded dataset produces a manifest.json recording provenance,
+file inventory, SHA-256 checksums, and download metadata. Downstream
+consumers (validate_dataset.py, feature extractors) read this manifest
+to discover files and verify integrity.
+
+Manifest schema version: 1.2
+
+Schema reference: see CODEBASE.md §Manifest Schema
+"""
+
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Optional
+
+MANIFEST_SCHEMA_VERSION = "1.2"
+MANIFEST_FILENAME = "manifest.json"
+
+
+def create_manifest(
+    output_dir: Path,
+    symbol: str,
+    source: str,
+    date_range: str,
+    files: list[str],
+    metadata: dict,
+    dataset: str = "XNAS.ITCH",
+    schema: str | None = None,
+    checksums: Optional[dict[str, str]] = None,
+) -> Path:
+    """Create a manifest.json for a downloaded dataset.
+
+    Per RULE.md §8 (Data Integrity): record diagnostics for all artifacts.
+
+    Args:
+        output_dir: Directory to write manifest into
+        symbol: Trading symbol (e.g., "NVDA")
+        source: Download method (e.g., "https", "api_batch")
+        date_range: Human-readable date range string (e.g., "2025-11-13 to 2025-11-25")
+        files: List of downloaded filenames
+        metadata: Additional metadata dict (job_id, speed, etc.)
+        dataset: Databento dataset identifier (e.g., "XNAS.ITCH", "OPRA")
+        schema: Data schema (e.g., "mbo", "cmbp-1"). None if not specified.
+        checksums: Dict of {filename: sha256_hex} for integrity verification
+
+    Returns:
+        Path to the created manifest.json
+    """
+    manifest = {
+        "schema_version": MANIFEST_SCHEMA_VERSION,
+        "symbol": symbol,
+        "dataset": dataset,
+        "source": "databento",
+        "download_method": source,
+        "date_range": date_range,
+        "download_timestamp": datetime.now(timezone.utc).isoformat(),
+        "file_count": len(files),
+        "files": sorted(files),
+        "checksums": checksums or {},
+        "metadata": metadata,
+    }
+    if schema is not None:
+        manifest["schema"] = schema
+
+    manifest_path = output_dir / MANIFEST_FILENAME
+    tmp_path = output_dir / (MANIFEST_FILENAME + ".tmp")
+    with open(tmp_path, "w") as f:
+        json.dump(manifest, f, indent=2)
+    tmp_path.rename(manifest_path)
+
+    print(f"  Created manifest: {manifest_path}")
+    return manifest_path
+
+
+def read_manifest(manifest_path: Path) -> dict:
+    """Read and return a manifest.json.
+
+    Args:
+        manifest_path: Path to manifest.json
+
+    Returns:
+        Parsed manifest dict
+
+    Raises:
+        FileNotFoundError: If manifest does not exist
+        json.JSONDecodeError: If manifest is not valid JSON
+    """
+    with open(manifest_path) as f:
+        return json.load(f)
+
+
+def validate_manifest(manifest: dict) -> list[str]:
+    """Validate a manifest dict against the expected schema.
+
+    Checks for required fields and correct types. Does NOT verify file
+    existence or checksums (that's the caller's responsibility).
+
+    Args:
+        manifest: Parsed manifest dict
+
+    Returns:
+        List of validation error strings (empty if valid)
+    """
+    errors: list[str] = []
+    required_fields = [
+        ("schema_version", str),
+        ("symbol", str),
+        ("dataset", str),
+        ("source", str),
+        ("download_method", str),
+        ("date_range", str),
+        ("download_timestamp", str),
+        ("file_count", int),
+        ("files", list),
+    ]
+
+    for field, expected_type in required_fields:
+        if field not in manifest:
+            errors.append(f"Missing required field: {field}")
+        elif not isinstance(manifest[field], expected_type):
+            errors.append(
+                f"Field '{field}' has type {type(manifest[field]).__name__}, "
+                f"expected {expected_type.__name__}"
+            )
+
+    if "files" in manifest and "file_count" in manifest:
+        if isinstance(manifest["files"], list) and isinstance(manifest["file_count"], int):
+            if len(manifest["files"]) != manifest["file_count"]:
+                errors.append(
+                    f"file_count ({manifest['file_count']}) does not match "
+                    f"len(files) ({len(manifest['files'])})"
+                )
+
+    if "checksums" in manifest and not isinstance(manifest["checksums"], dict):
+        errors.append(
+            f"Field 'checksums' has type {type(manifest['checksums']).__name__}, "
+            f"expected dict"
+        )
+
+    return errors
+
+
+def extract_date_range(filenames: list[str]) -> str:
+    """Extract date range from Databento filenames.
+
+    Handles both XNAS and OPRA naming conventions:
+        - xnas-itch-20250929.mbo.dbn.zst
+        - opra-pillar-20251113.cmbp-1.dbn.zst
+
+    Args:
+        filenames: List of Databento data filenames
+
+    Returns:
+        Formatted date range string like '2025-09-29 to 2025-11-25',
+        or 'unknown' if no dates could be extracted
+    """
+    dates: list[str] = []
+    for f in filenames:
+        parts = f.split("-")
+        for part in parts:
+            date_part = part.split(".")[0]
+            if len(date_part) == 8 and date_part.isdigit():
+                dates.append(date_part)
+                break
+
+    if dates:
+        dates.sort()
+        start = f"{dates[0][:4]}-{dates[0][4:6]}-{dates[0][6:]}"
+        end = f"{dates[-1][:4]}-{dates[-1][4:6]}-{dates[-1][6:]}"
+        return f"{start} to {end}"
+    return "unknown"

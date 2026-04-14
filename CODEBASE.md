@@ -15,7 +15,7 @@ databento-ingest/
     cli.py                            # CLI entry point (6 argparse subcommands)
     config.py                         # TOML config loader + validation + 6 dataclass types
     downloader.py                     # HTTPS download engine, Databento manifest loader, DownloadProgress
-    manifest.py                       # Our manifest creation/reading/validation (schema v1.2)
+    manifest.py                       # Our manifest creation/reading/validation (schema v1.3)
     batch.py                          # API batch operations (submit, list-jobs, merge)
   configs/
     credentials.toml.example          # Template (actual file gitignored)
@@ -27,10 +27,10 @@ databento-ingest/
   tests/
     test_config.py                    # Config validation + defaults + credentials (18 tests)
     test_downloader.py                # format_duration, _parse_expected_hash (17 tests)
-    test_manifest.py                  # Manifest schema + create/read + date extraction + Databento manifest loading (19 tests)
+    test_manifest.py                  # Manifest schema + create/read + date extraction + atomic-write + traceability (22 tests)
 ```
 
-**Test total: 54** (18 + 17 + 19).
+**Test total: 57** (18 + 17 + 22).
 
 ## Data Flow
 
@@ -61,7 +61,7 @@ credentials.toml ─────> cli.py ──> api_key
                                   manifest.py
                                        |
                                        v
-                                  manifest.json (our schema v1.2)
+                                  manifest.json (our schema v1.3)
 ```
 
 ## Download Protocol
@@ -299,7 +299,7 @@ data/
   OPRA/
     NVDA/
       cmbp1_2025-11-13_to_2025-11-25/   # {schema}_{start}_to_{end}
-        manifest.json                     # Our manifest (schema v1.2)
+        manifest.json                     # Our manifest (schema v1.3)
         opra-pillar-20251113.cmbp-1.dbn.zst
         ...
 ```

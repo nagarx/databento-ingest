@@ -516,9 +516,11 @@ def download_file(
             requests.Timeout,
             requests.HTTPError,
             # Streaming/encoding errors (transient — server sent malformed
-            # chunks or corrupted gzip/deflate payload)
-            requests.ChunkedEncodingError,
-            requests.ContentDecodingError,
+            # chunks or corrupted gzip/deflate payload). These live under
+            # requests.exceptions and are NOT re-exported at the requests
+            # top level (unlike ConnectionError/Timeout/HTTPError).
+            requests.exceptions.ChunkedEncodingError,
+            requests.exceptions.ContentDecodingError,
             # Redirect loops (rare; treated as transient — could be temporary
             # server-side misconfiguration)
             requests.TooManyRedirects,

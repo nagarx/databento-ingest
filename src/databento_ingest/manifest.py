@@ -5,7 +5,8 @@ file inventory, SHA-256 checksums, and download metadata. Downstream
 consumers (validate_dataset.py, feature extractors) read this manifest
 to discover files and verify integrity.
 
-Manifest schema version: 1.2
+Manifest schema version: 1.3 (added ingest_tool_version + databento_api_version
+metadata fields for multi-year reproducibility; non-breaking additive change).
 
 Schema reference: see CODEBASE.md §Manifest Schema
 """
@@ -15,7 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-MANIFEST_SCHEMA_VERSION = "1.2"
+MANIFEST_SCHEMA_VERSION = "1.3"
 MANIFEST_FILENAME = "manifest.json"
 
 
@@ -66,9 +67,16 @@ def create_manifest(
 
     manifest_path = output_dir / MANIFEST_FILENAME
     tmp_path = output_dir / (MANIFEST_FILENAME + ".tmp")
-    with open(tmp_path, "w") as f:
-        json.dump(manifest, f, indent=2)
-    tmp_path.rename(manifest_path)
+    try:
+        with open(tmp_path, "w") as f:
+            json.dump(manifest, f, indent=2)
+        tmp_path.rename(manifest_path)
+    except Exception:
+        # Clean up partial .tmp on any failure (e.g., non-serializable
+        # metadata, disk full). Per hft-rules.md §8: never silently leave
+        # diagnostic-less artifacts on disk.
+        tmp_path.unlink(missing_ok=True)
+        raise
 
     print(f"  Created manifest: {manifest_path}")
     return manifest_path

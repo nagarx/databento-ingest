@@ -511,12 +511,23 @@ def download_file(
             return (filename, True, "", sha256_hex)
 
         except (
+            # Network/connection errors (transient)
             requests.ConnectionError,
             requests.Timeout,
             requests.HTTPError,
+            # Streaming/encoding errors (transient — server sent malformed
+            # chunks or corrupted gzip/deflate payload)
+            requests.ChunkedEncodingError,
+            requests.ContentDecodingError,
+            # Redirect loops (rare; treated as transient — could be temporary
+            # server-side misconfiguration)
+            requests.TooManyRedirects,
+            # Lower-level network/system errors
             ConnectionResetError,
             TimeoutError,
             OSError,
+            # Size/SHA-256 mismatch + malformed-URL ValueError subclasses
+            # (MissingSchema, InvalidURL, InvalidHeader)
             ValueError,
         ) as e:
             # Reset progress for bytes counted in this failed attempt

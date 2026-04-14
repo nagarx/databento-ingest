@@ -174,13 +174,13 @@ Merge `.dbn.zst` files from a source directory into a target directory.
 
 Skips files that already exist with matching size. Overwrites on size mismatch.
 
-## Manifest Schema (v1.2)
+## Manifest Schema (v1.3)
 
 Every downloaded dataset produces a `manifest.json` (our format, distinct from Databento's):
 
 ```json
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "symbol": "NVDA",
   "dataset": "OPRA",
   "schema": "cmbp-1",
@@ -221,6 +221,9 @@ Every downloaded dataset produces a `manifest.json` (our format, distinct from D
 - `parallel_connections`: Number of parallel connections used (int).
 
 **Invariant**: `file_count == len(files)`.
+
+**Schema evolution**:
+- **v1.2 → v1.3** (additive, non-breaking): added `metadata.ingest_tool_version` (from `__version__`) and `metadata.databento_api_version` (from `DATABENTO_API_VERSION`) for multi-year reproducibility. Old v1.2 manifests on disk remain readable; downstream consumers see the new fields as additional `metadata` dict entries.
 
 **Write safety**: Manifest is written atomically via write-to-`.tmp`-then-rename.
 
@@ -357,7 +360,7 @@ Thread-safe aggregate progress tracker for multi-file parallel downloads. Uses `
 | `MIN_SPEED_BPS` | `50,000` (50 KB/s) | downloader | Abort threshold -- well below any usable connection |
 | `MIN_SPEED_DURATION` | `60` seconds | downloader | Duration below `MIN_SPEED_BPS` before triggering abort + retry |
 | `DEFAULT_ESTIMATED_SPEED_MBS` | `3.0` MB/s | downloader | Conservative default for dry-run time estimates |
-| `MANIFEST_SCHEMA_VERSION` | `"1.2"` | manifest | Our manifest format version |
+| `MANIFEST_SCHEMA_VERSION` | `"1.3"` | manifest | Our manifest format version (bumped from 1.2 when traceability metadata fields were added) |
 | `MANIFEST_FILENAME` | `"manifest.json"` | manifest | Output manifest filename |
 | `DownloadParams.parallel` | `2` (default) | config | Default parallelism for config-driven `download` subcommand |
 

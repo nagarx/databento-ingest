@@ -17,7 +17,7 @@ from databento_ingest.downloader import load_databento_manifest
 def _minimal_manifest() -> dict:
     """Return a minimal valid manifest dict."""
     return {
-        "schema_version": "1.2",
+        "schema_version": "1.3",
         "symbol": "NVDA",
         "dataset": "OPRA",
         "source": "databento",
@@ -75,8 +75,8 @@ class TestValidateManifest:
         )
 
     def test_schema_version_constant(self):
-        assert MANIFEST_SCHEMA_VERSION == "1.2", (
-            f"Expected MANIFEST_SCHEMA_VERSION='1.2', got '{MANIFEST_SCHEMA_VERSION}'"
+        assert MANIFEST_SCHEMA_VERSION == "1.3", (
+            f"Expected MANIFEST_SCHEMA_VERSION='1.3', got '{MANIFEST_SCHEMA_VERSION}'"
         )
 
 
@@ -97,7 +97,7 @@ class TestCreateManifest:
 
             assert path.exists(), f"Manifest file should exist at {path}"
             data = json.loads(path.read_text())
-            assert data["schema_version"] == "1.2", f"Expected schema_version='1.2', got '{data['schema_version']}'"
+            assert data["schema_version"] == "1.3", f"Expected schema_version='1.3', got '{data['schema_version']}'"
             assert data["symbol"] == "NVDA", f"Expected symbol='NVDA', got '{data['symbol']}'"
             assert data["dataset"] == "OPRA", f"Expected dataset='OPRA', got '{data['dataset']}'"
             assert data["schema"] == "cmbp-1", f"Expected schema='cmbp-1', got '{data['schema']}'"
@@ -136,6 +136,84 @@ class TestCreateManifest:
             )
             data = json.loads(path.read_text())
             assert "schema" not in data, f"Expected no 'schema' key when None, got '{data.get('schema')}'"
+
+    def test_traceability_metadata_preserved(self):
+        """Schema v1.3 contract: ingest_tool_version and databento_api_version
+        are preserved when written to manifest. Documents the multi-year
+        reproducibility contract added in Round 2 fixes."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            path = create_manifest(
+                output_dir=Path(tmpdir),
+                symbol="NVDA",
+                source="https",
+                date_range="test",
+                files=["a.dbn.zst"],
+                metadata={
+                    "ingest_tool_version": "0.2.0",
+                    "databento_api_version": 0,
+                    "job_id": "TEST-123",
+                    "total_size_bytes": 1000,
+                    "failed_files": [],
+                    "download_speed_mbps": 35.1,
+                    "download_elapsed_seconds": 10.0,
+                    "parallel_connections": 4,
+                },
+            )
+            data = json.loads(path.read_text())
+            md = data["metadata"]
+            assert md["ingest_tool_version"] == "0.2.0", (
+                f"Expected ingest_tool_version='0.2.0', got '{md.get('ingest_tool_version')}'"
+            )
+            assert md["databento_api_version"] == 0, (
+                f"Expected databento_api_version=0, got {md.get('databento_api_version')}"
+            )
+            assert md["failed_files"] == [], (
+                f"Expected failed_files=[], got {md.get('failed_files')}"
+            )
+            assert md["download_elapsed_seconds"] == 10.0, (
+                f"Expected download_elapsed_seconds=10.0, got {md.get('download_elapsed_seconds')}"
+            )
+
+    def test_no_orphan_tmp_on_success(self):
+        """Atomic write contract: after successful create_manifest, only
+        manifest.json exists (the .tmp temp file is renamed away)."""
+        import os
+        with tempfile.TemporaryDirectory() as tmpdir:
+            create_manifest(
+                output_dir=Path(tmpdir),
+                symbol="NVDA",
+                source="https",
+                date_range="test",
+                files=["a.dbn.zst"],
+                metadata={},
+            )
+            files_in_dir = set(os.listdir(tmpdir))
+            assert files_in_dir == {"manifest.json"}, (
+                f"Expected only manifest.json after success, got {files_in_dir}"
+            )
+
+    def test_orphan_tmp_cleaned_on_failure(self):
+        """Atomic write contract: if json.dump raises (non-serializable
+        metadata), the .tmp file must be cleaned up — not orphaned on disk."""
+        import os
+        with tempfile.TemporaryDirectory() as tmpdir:
+            # Pass a non-JSON-serializable value (a set) inside metadata
+            try:
+                create_manifest(
+                    output_dir=Path(tmpdir),
+                    symbol="NVDA",
+                    source="https",
+                    date_range="test",
+                    files=["a.dbn.zst"],
+                    metadata={"bad_value": {1, 2, 3}},  # set is not JSON-serializable
+                )
+                assert False, "Expected TypeError from json.dump on non-serializable metadata"
+            except TypeError:
+                pass  # Expected
+            files_in_dir = set(os.listdir(tmpdir))
+            assert files_in_dir == set(), (
+                f"Expected no files after failed create_manifest (cleanup), got {files_in_dir}"
+            )
 
 
 class TestReadManifest:

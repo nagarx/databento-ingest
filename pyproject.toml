@@ -7,7 +7,10 @@ name = "databento-ingest"
 version = "0.2.0"
 description = "High-throughput, safety-first data acquisition from Databento via HTTPS"
 requires-python = ">=3.11"
-dependencies = ["requests>=2.31"]
+dependencies = [
+    "requests>=2.31",
+    "hft-contracts>=2.8.0",  # #PY-371: atomic_write_json SSoT consumer (Class A; manifest.py:81)
+]
 
 [project.optional-dependencies]
 api = ["databento"]

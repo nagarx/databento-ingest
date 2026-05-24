@@ -225,7 +225,7 @@ Every downloaded dataset produces a `manifest.json` (our format, distinct from D
 **Schema evolution**:
 - **v1.2 → v1.3** (additive, non-breaking): added `metadata.ingest_tool_version` (from `__version__`) and `metadata.databento_api_version` (from `DATABENTO_API_VERSION`) for multi-year reproducibility. Old v1.2 manifests on disk remain readable; downstream consumers see the new fields as additional `metadata` dict entries.
 
-**Write safety**: Manifest is written atomically via write-to-`.tmp`-then-rename.
+**Write safety**: Manifest is written atomically via the `hft_contracts.atomic_io.atomic_write_json` SSoT (Class A primitive; tmp + fsync + `os.replace` + BaseException-safe cleanup). Pre-#PY-371 (closed 2026-05-24) used local manual `tmp.rename()` without fsync barrier. Caller pre-validates JSON-serializability via bare `json.dumps(manifest)` before the SSoT call to preserve hft-rules §8 fail-loud-on-non-serializable-types — atomic_write_json's `default=str` silently coerces; see `hft-contracts/src/hft_contracts/atomic_io.py:38-65` §"Canonical convention" for the caller-responsibility note.
 
 ## Dataset Config Schema
 

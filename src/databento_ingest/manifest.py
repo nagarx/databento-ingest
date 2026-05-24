@@ -16,6 +16,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+from hft_contracts.atomic_io import atomic_write_json  # #PY-371 SSoT (Class A)
+
 MANIFEST_SCHEMA_VERSION = "1.3"
 MANIFEST_FILENAME = "manifest.json"
 
@@ -65,18 +67,18 @@ def create_manifest(
     if schema is not None:
         manifest["schema"] = schema
 
+    # #PY-371: atomic_write_json SSoT (tmp + fsync + os.replace + cleanup).
+    # Replaces prior manual rename pattern (lacked fsync; race on FS journal flush).
+    # Per hft-rules.md §8: never silently leave diagnostic-less artifacts on disk —
+    # SSoT primitive handles this via BaseException-safe cleanup.
+    #
+    # Pre-validate JSON-serializability BEFORE atomic_write_json — required because
+    # atomic_write_json uses ``default=str`` which silently coerces non-serializable
+    # types (set, custom objects, etc.) into their repr-strings. §8 fail-loud-on-
+    # bad-caller-data is preserved here by raising TypeError before the SSoT call.
     manifest_path = output_dir / MANIFEST_FILENAME
-    tmp_path = output_dir / (MANIFEST_FILENAME + ".tmp")
-    try:
-        with open(tmp_path, "w") as f:
-            json.dump(manifest, f, indent=2)
-        tmp_path.rename(manifest_path)
-    except Exception:
-        # Clean up partial .tmp on any failure (e.g., non-serializable
-        # metadata, disk full). Per hft-rules.md §8: never silently leave
-        # diagnostic-less artifacts on disk.
-        tmp_path.unlink(missing_ok=True)
-        raise
+    json.dumps(manifest)  # raises TypeError on non-JSON-serializable values (§8)
+    atomic_write_json(manifest_path, manifest)
 
     print(f"  Created manifest: {manifest_path}")
     return manifest_path

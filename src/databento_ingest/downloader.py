@@ -114,9 +114,15 @@ class DownloadProgress:
 
     Accounting model:
         - new_bytes: bytes transferred in the current session (excludes resume)
-        - completed_bytes: total size of fully completed files
-        - Both are monotonically increasing. Speed uses new_bytes only.
-        - Overall progress uses completed_bytes + new_bytes (capped at total).
+        - completed_bytes: total size of fully completed files (bookkeeping only)
+        - Speed AND overall progress use new_bytes (capped at total). completed_bytes
+          is NOT added to progress: a completed file's bytes are already in new_bytes
+          (accumulated per chunk via add_chunk), so completed_bytes + new_bytes
+          double-counted them and the bar reached 100% at ~half-done. total_bytes is
+          this run's remaining work, so new_bytes/total_bytes tracks the run correctly.
+          (Caveat: a file RESUMED mid-run contributes its newly-streamed bytes to
+          new_bytes but not its pre-existing on-disk partial until it completes — a
+          benign per-run undercount, never a false 100%.)
     """
 
     def __init__(self, total_files: int, total_bytes: int):
@@ -152,11 +158,11 @@ class DownloadProgress:
             elapsed = time.time() - self.start_time
             # Speed: only new bytes transferred this session
             speed = self.new_bytes / max(elapsed, 0.1)
-            # Progress: completed files' total size + in-flight new bytes
-            total_progress = min(
-                self.completed_bytes + self.new_bytes,
-                self.total_bytes,
-            )
+            # Progress: bytes actually transferred this session, capped at total.
+            # completed files' bytes are ALREADY in new_bytes (accumulated per chunk
+            # via add_chunk) — adding completed_bytes here double-counted them, which
+            # drove the bar to 100% at ~half-done without the download finishing.
+            total_progress = min(self.new_bytes, self.total_bytes)
             remaining = max(self.total_bytes - total_progress, 0)
             eta = remaining / max(speed, 1)
             pct = total_progress / max(self.total_bytes, 1) * 100

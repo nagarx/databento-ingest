@@ -1,6 +1,10 @@
-"""Tests for downloader helper functions: format_duration, _parse_expected_hash."""
+"""Tests for downloader helper functions: format_duration, _parse_expected_hash, DownloadProgress."""
 
-from databento_ingest.downloader import _parse_expected_hash, format_duration
+from databento_ingest.downloader import (
+    DownloadProgress,
+    _parse_expected_hash,
+    format_duration,
+)
 
 
 class TestFormatDuration:
@@ -71,3 +75,47 @@ class TestParseExpectedHash:
         algo, digest = _parse_expected_hash("sha256:")
         assert algo == "sha256", f"Expected algo='sha256', got '{algo}'"
         assert digest == "", f"Expected empty digest, got '{digest}'"
+
+
+class TestDownloadProgress:
+    """Overall-progress accounting must never report 100% before the transfer is
+    actually complete. Regression guard for the '[Overall] hits 100% at ~halfway'
+    bug: completed-file bytes were counted twice (once per-chunk via add_chunk into
+    new_bytes, then again as completed_bytes), so completed_bytes + new_bytes hit
+    total_bytes (capped at 100%) at roughly the midpoint of the download.
+    """
+
+    def test_completed_file_not_double_counted(self):
+        # 2 files x 100 bytes (total 200). File A fully transferred + completed;
+        # File B 50% in flight. Correct overall progress = 150/200 = 75%, NOT 100%.
+        p = DownloadProgress(total_files=2, total_bytes=200)
+        p.add_chunk(100)        # File A streamed
+        p.file_done(100)        # File A completed
+        p.add_chunk(50)         # File B 50% in flight
+        line = p.summary_line()
+        assert "(75%)" in line, f"Expected 75% (150/200) mid-download, got: {line}"
+        assert "(100%)" not in line, (
+            "Progress reported 100% before the download finished — completed-file "
+            f"bytes were double-counted: {line}"
+        )
+
+    def test_reaches_100_only_when_all_transferred(self):
+        # Both files fully transferred + completed -> exactly 100%.
+        p = DownloadProgress(total_files=2, total_bytes=200)
+        p.add_chunk(100)
+        p.file_done(100)
+        p.add_chunk(100)
+        p.file_done(100)
+        line = p.summary_line()
+        assert "(100%)" in line, f"Expected 100% once all bytes transferred, got: {line}"
+
+    def test_retry_undo_does_not_inflate_progress(self):
+        # A failed attempt's bytes are undone via reset_file_progress, so a partial
+        # then-retried file must not push progress past its true transferred amount.
+        p = DownloadProgress(total_files=1, total_bytes=100)
+        p.add_chunk(40)                 # partial attempt
+        p.reset_file_progress(40)       # attempt failed -> undo
+        p.add_chunk(25)                 # retry, 25% in flight
+        line = p.summary_line()
+        assert "(25%)" in line, f"Expected 25% after retry-undo, got: {line}"
+        assert "(65%)" not in line, f"Retry bytes not undone (40+25 leaked): {line}"

@@ -226,7 +226,7 @@ Examples:
   # Direct download by job ID
   python -m databento_ingest download-job \\
       --job-id "OPRA-20260305-FP53NRH898" \\
-      --output-dir "data/OPRA/NVDA/cmbp1_2025-11-13_to_2025-11-25" \\
+      --output-dir "data/OPRA/NVDA/cmbp1_2025-10-29_to_2025-11-24" \\
       --symbol NVDA --dataset OPRA
 
   # Credentials are read from databento-ingest/credentials.toml

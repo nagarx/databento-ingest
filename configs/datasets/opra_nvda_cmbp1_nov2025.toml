@@ -1,6 +1,6 @@
 # OPRA CMBP-1 options data for NVDA, Nov 13-25 2025
 # Schema: CMBP-1 (consolidated best bid/ask)
-# 8 files, ~278 GB total
+# 8 files (~278 GB); 2026-06-14 merged into cmbp1_2025-10-29_to_2025-11-24 (19 files, 595 GB)
 
 [source]
 method = "https"
@@ -15,7 +15,9 @@ start_date = "2025-11-13"
 end_date = "2025-11-25"
 
 [storage]
-output_dir = "data/OPRA/NVDA/cmbp1_2025-11-13_to_2025-11-25"
+# 2026-06-14: the 11/13-11/24 files from this job were merged into the canonical
+# cmbp1_2025-10-29_to_2025-11-24 dir. Re-running download/verify writes there (skip-by-size).
+output_dir = "data/OPRA/NVDA/cmbp1_2025-10-29_to_2025-11-24"
 
 [download]
 parallel = 2

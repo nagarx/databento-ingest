@@ -1,0 +1,31 @@
+# EQUS.MINI ohlcv-1s — 86-symbol regime / cross-asset market-context universe (sibling of bbo-1s).
+# Batch job EQUS-20260614-VTEFXJ7A5T, Databento account RCKQA83F.
+# ⚠ DIFFERENT account than the bbo-1s job (LLLVEPKX): the gitignored credentials.toml key MUST
+#   belong to RCKQA83F, else every file returns HTTP 403 auth_user_does_not_match_api_key.
+# 270 daily files (one file = all 86 symbols; split_symbols=false), 1.05 GB,
+# span 2025-01-02 .. 2026-01-30. 15 degraded dates (recorded in DATASET.md / _provenance/condition.json).
+# Source bundle: /Volumes/WD_Black/HFT-data/OHLCV-1s-config/ (condition + manifest + metadata).
+# Validated 2026-06-14 by a 3-agent review: bundle 100% SHA-256-enforceable, no collision, TOML trap-safe.
+# Secrets: the API key lives ONLY in gitignored credentials.toml — never in this file.
+
+[source]
+method = "https"
+job_id = "EQUS-20260614-VTEFXJ7A5T"
+# Local Databento bundle manifest = authoritative file list + account-scoped permanent URLs +
+# per-file SHA-256. A present manifest_path deterministically wins over job_id (no API call).
+# ABSOLUTE path = used verbatim (sidesteps the cli.py manifest_path-vs-output_dir base asymmetry).
+manifest_path = "/Volumes/WD_Black/HFT-data/OHLCV-1s-config/manifest.json"
+
+[dataset]
+name = "EQUS.MINI"
+schema = "ohlcv-1s"
+symbol = "REGIME_UNIVERSE_86"   # label only (86-symbol job; NOT a file filter)
+start_date = "2025-01-02"
+end_date = "2026-01-30"
+
+[storage]
+# ABSOLUTE → used verbatim. Sibling of bbo1s_2025-01-02_to_2026-01-30/ under the same scope.
+output_dir = "/Volumes/WD_Black/HFT-data/EQUS_MINI/REGIME_UNIVERSE/ohlcv1s_2025-01-02_to_2026-01-30"
+
+[download]
+parallel = 4   # 270 small files (~3.8 MB median) → a few connections hide per-file latency under the ~2.7 MB/s cap

@@ -1,0 +1,31 @@
+# EQUS.MINI bbo-1s — 86-symbol regime / cross-asset market-context universe
+# (NVDA + broad-market/sector/rates/credit/commodity/FX ETFs + semis peers + mega-caps).
+# Batch job EQUS-20260614-9NCXWVA4JJ, Databento account LLLVEPKX.
+# 270 daily files (one file = all 86 symbols; split_symbols=false), 7.28 GB,
+# span 2025-01-02 .. 2026-01-30. 15 degraded dates (recorded in DATASET.md / _provenance/condition.json).
+# Source bundle: /Volumes/WD_Black/HFT-data/BBO-1s-config/ (condition + manifest + metadata).
+# Validated 2026-06-14 by a 3-agent review: bundle 100% SHA-256-enforceable, no collision, TOML trap-safe.
+# Secrets: the API key lives ONLY in gitignored credentials.toml (account LLLVEPKX) — never in this file.
+
+[source]
+method = "https"
+job_id = "EQUS-20260614-9NCXWVA4JJ"
+# Local Databento bundle manifest = authoritative file list + account-scoped permanent URLs +
+# per-file SHA-256. A present manifest_path deterministically wins over job_id (downloader.py:684-700,
+# no API call). ABSOLUTE path = used verbatim (sidesteps the cli.py manifest_path-vs-output_dir base
+# asymmetry: relative manifest_path resolves to databento-ingest/, relative output_dir to the repo root).
+manifest_path = "/Volumes/WD_Black/HFT-data/BBO-1s-config/manifest.json"
+
+[dataset]
+name = "EQUS.MINI"
+schema = "bbo-1s"
+symbol = "REGIME_UNIVERSE_86"   # label only (86-symbol job; NOT a file filter — used solely in our output manifest)
+start_date = "2025-01-02"
+end_date = "2026-01-30"
+
+[storage]
+# ABSOLUTE → used verbatim. Convention: {DATASET}/{SCOPE}/{schema}_{start}_to_{end} (cf. GLBX_MDP3/ES_NQ/bbo1s_..).
+output_dir = "/Volumes/WD_Black/HFT-data/EQUS_MINI/REGIME_UNIVERSE/bbo1s_2025-01-02_to_2026-01-30"
+
+[download]
+parallel = 4   # 270 small files (~28 MB median) → a few connections hide per-file latency under the ~2.7 MB/s link cap

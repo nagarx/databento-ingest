@@ -1,0 +1,59 @@
+# OPRA cbbo-1m INDEX options — SPX + SPY + SPXW (the index 0DTE / dealer-gamma "variance" lane).
+# Batch job OPRA-20260619-KQWTQ9UGMT, Databento account RCKQA83F.
+#
+# ⚠ ACCOUNT: the gitignored credentials.toml key MUST belong to RCKQA83F, else every file returns
+#   HTTP 403 auth_user_does_not_match_api_key. (Same account as the EQUS ohlcv-1s job; DIFFERENT
+#   from the EQUS bbo-1s job's LLLVEPKX.) Pre-flight-validated 2026-06-19: a 1-byte ranged GET
+#   returned HTTP 206 (auth OK, Range/resume honored) and day-1 size matched the manifest.
+#
+# SCOPE: 3 index-option underlyings via PARENT symbology (stype_in=parent, stype_out=instrument_id,
+#   map_symbols=false, split_symbols=false) → one daily file = ALL SPX/SPY/SPXW contracts interleaved,
+#   carrying numeric instrument_id (NOT OCC symbols). Resolve id → {underlying,strike,expiry,C/P} via a
+#   point-in-time OPRA `definition`-schema join per day (OPRA remaps ids daily) before any gamma math.
+#
+# CONTENTS: 19 daily files (opra-pillar-YYYYMMDD.cbbo-1m.dbn.zst), Σ 6,857,623,249 bytes (6.39 GiB /
+#   6.86 GB), span 2025-10-29 .. 2025-11-24 (all 19 dates `available`).
+#   ⚠ 2025-11-24 is a 593.6 KB PRE-MARKET SLIVER (query end = 2025-11-24 13:30 UTC = 08:30 ET, before
+#   the 09:30 open) → effectively 18 full days (10/29-11/21) + the 11/24 sliver. Special-case 11/24 in
+#   any same-session/0DTE pipeline.
+#
+# DOWNSTREAM GAPS (acquire separately when needed): cbbo-1m carries no Greeks/IV (derive via BSM from
+#   mid-quote + an index level + r + τ) and NO open-interest (OI lives only in the OPRA `statistics`
+#   schema) → true OI-weighted dealer-GEX needs a separate `statistics` pull; SPX/SPXW need an index
+#   price series (the opra-statistical-profiler underlying source is equity-only and hard-errors on an
+#   index — SPY is the easy equity case).
+#
+# Source bundle preserved at: databento-ingest/jobs/OPRA-20260619-KQWTQ9UGMT/ (gitignored) and the
+#   SSD output dir's _provenance/.  Secrets: the API key lives ONLY in gitignored credentials.toml.
+
+[source]
+method = "https"
+job_id = "OPRA-20260619-KQWTQ9UGMT"
+# Local Databento bundle manifest = authoritative file list + account-scoped permanent URLs +
+# per-file SHA-256. A present manifest_path deterministically wins over job_id (no API call).
+# ABSOLUTE path = used verbatim (sidesteps the cli.py manifest_path-vs-output_dir base asymmetry).
+# Points at the durable repo jobs/ copy so a later cleanup of the SSD 19_06_config/ staging dir
+# cannot orphan this config.
+manifest_path = "/Users/knight/code_local/HFT-pipeline-v2/databento-ingest/jobs/OPRA-20260619-KQWTQ9UGMT/manifest.json"
+
+[dataset]
+name = "OPRA"
+schema = "cbbo-1m"
+symbol = "SPX.OPT,SPY.OPT,SPXW.OPT"   # parent-symbology label (multi-symbol job; NOT a per-file filter)
+start_date = "2025-10-29"
+end_date = "2025-11-24"
+
+[storage]
+# ABSOLUTE → used verbatim. Convention: OPRA/{group}/{schema}_{start}_to_{end}.  group=INDEX for the
+# multi-underlying SPX/SPY/SPXW set (parallels the single-underlying OPRA/NVDA/cmbp1_… dir).
+output_dir = "/Volumes/WD_Black/HFT-data/OPRA/INDEX/cbbo1m_2025-10-29_to_2025-11-24"
+
+[download]
+parallel = 1   # 19 LARGE files (~377 MB median) on this ~2.7 MB/s bandwidth-CAPPED, occasionally-
+               # dropping link. The cap is per-link, not per-connection: DOWNLOAD_OPERATIONS.md
+               # measured parallel=1/2/4 → 2.71/2.30/2.69 MB/s (1 was fastest; 2 was WORST). For few
+               # large files, per-file HTTPS setup latency is negligible vs ~140 s/file transfer, so
+               # extra streams add no throughput and only fragment resume into more partial temps.
+               # Single-stream = fastest here AND simplest/safest to resume after a drop (one partial
+               # temp at a time, Range-resumed). (Contrast EQUS ohlcv-1s parallel=4 — that was 270
+               # TINY ~3.8 MB files where streams hide per-file latency.)

@@ -1,6 +1,8 @@
 # databento-ingest -- Technical Reference
 
-High-throughput, safety-first data acquisition from Databento via HTTPS API for the HFT pipeline.
+High-throughput, safety-first data acquisition from Databento via HTTPS API for the trading research pipeline.
+
+> **Pipeline scope (2026-06-02).** This module is part of an **intraday trading research pipeline** — an experiment-first platform for discovering and validating *any* profitable **intraday** trading edge (no overnight positions), across approach classes (microstructure/HFT, scalping, intraday momentum, intraday statistical arbitrage, …) and instruments (equities, futures, same-day options). The pipeline *originated* as a high-frequency NVDA MBO/LOB microstructure system — that origin explains the "HFT" / "LOB" / "MBO" naming here — and that microstructure-direction program is now one (largely-closed) track among many. **Names are historical; the mission is general.** This module's role: the data-acquisition front door — Databento HTTPS download + streaming SHA-256 verify + atomic writes; acquires any dataset the research needs (equities/futures/options bars or tick/MBO). For the full mission + approach taxonomy + capability-readiness boundary, see root `CLAUDE.md` §Research Scope & Charter (+ `CROSS_ASSET_OFI_FINDINGS_AND_ISSUES_2026_06_01.md` §9).
 
 ## Module Structure
 
@@ -20,7 +22,10 @@ databento-ingest/
   configs/
     credentials.toml.example          # Template (actual file gitignored)
     datasets/
-      opra_nvda_cmbp1_nov2025.toml          # OPRA NVDA CMBP-1, Nov 2025 (8 files, ~278 GB)
+      opra_nvda_cmbp1_nov2025.toml          # OPRA NVDA CMBP-1, Nov 2025 (8 files; now in the merged 19-file cmbp1_2025-10-29_to_2025-11-24 / 595 GB set)
+      opra_index_spx_spy_cbbo1m_oct_nov2025.toml  # OPRA INDEX cbbo-1m SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 6.86 GB; index 0DTE/dealer-gamma variance lane)
+      opra_index_spx_spy_statistics_oct_nov2025.toml  # OPRA INDEX statistics SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 117 MB; Open-Interest companion to the cbbo-1m set for GEX)
+      opra_index_spx_spy_definition_oct_nov2025.toml  # OPRA INDEX definition SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 26 MB; instrument_id->contract JOIN KEY for the cbbo-1m + statistics sets)
       arcx_pillar_nvda_mbo_2025.toml        # ARCX.PILLAR NVDA MBO, Feb 2025 - Jan 2026 (233 files, ~23 GB)
       xnas_basic_nvda_cmbp1_2025.toml       # XNAS.BASIC NVDA CMBP-1, Feb 2025 - Jan 2026 (235 files, ~24 GB)
       xnas_itch_multi10_mbo_2025h2.toml     # XNAS.ITCH 10-stock MBO, Jul 2025 - Jan 2026 (1340 files, ~14 GB)
@@ -245,7 +250,7 @@ start_date = "2025-11-13"        # Optional: for documentation/metadata
 end_date = "2025-11-25"          # Optional: for documentation/metadata
 
 [storage]
-output_dir = "data/OPRA/NVDA/cmbp1_2025-11-13_to_2025-11-25"  # Required
+output_dir = "data/OPRA/NVDA/cmbp1_2025-10-29_to_2025-11-24"  # Required
 
 [download]
 parallel = 2                      # Optional: parallel connections (default: 2, max: 8)
@@ -298,7 +303,7 @@ The downloader passes the symbol string through to manifest metadata without par
 data/
   OPRA/
     NVDA/
-      cmbp1_2025-11-13_to_2025-11-25/   # {schema}_{start}_to_{end}
+      cmbp1_2025-10-29_to_2025-11-24/   # {schema}_{start}_to_{end}
         manifest.json                     # Our manifest (schema v1.3)
         opra-pillar-20251113.cmbp-1.dbn.zst
         ...

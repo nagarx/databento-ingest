@@ -1,0 +1,50 @@
+# OPRA statistics INDEX options — SPX + SPY + SPXW (Open Interest for the dealer-gamma / GEX lane).
+# Batch job OPRA-20260619-UNVXH5MSFT, Databento account RCKQA83F.
+#
+# ⚠ ACCOUNT: same account (RCKQA83F) and same gitignored credentials.toml key as the sibling cbbo-1m
+#   job OPRA-20260619-KQWTQ9UGMT. Pre-flight-validated 2026-06-19: a 1-byte ranged GET returned HTTP 206.
+#
+# WHY: this is the companion to the cbbo-1m quote set — it supplies OPEN INTEREST (StatMsg stat_type=9,
+#   carried in `quantity`, attributed to its trading session via `ts_ref`), which is ABSENT from every
+#   BBO/quote schema and is irreducible. OI is the weight in OI-weighted dealer-GEX. OPRA `statistics`
+#   also carries cleared-volume (6) + session OHLC (1/4/5/11) + net-change (12), but NOT settlement (3),
+#   IV (14) or delta (15) for options — IV/Greeks are derived via BSM from the cbbo-1m mid-quotes.
+#
+# SCOPE: same 3 index-option underlyings via PARENT symbology (stype_in=parent, stype_out=instrument_id,
+#   map_symbols=false, split_symbols=false) → one daily file = all SPX/SPY/SPXW contracts' stats, keyed by
+#   numeric instrument_id. Resolve id → {underlying,strike,expiry,C/P} via the SAME point-in-time OPRA
+#   `definition`-schema join as the quote set (one definition pull serves both; OPRA remaps ids daily).
+#
+# CONTENTS: 19 daily files (opra-pillar-YYYYMMDD.statistics.dbn.zst), Σ 116,578,578 bytes (111.18 MiB /
+#   116.58 MB), span 2025-10-29 .. 2025-11-24 (all 19 dates `available`). Sparse end-of-day/overnight
+#   event stream (~6.3 MB/day) — far smaller than the ~377 MB/day 1-min quote files.
+#   ⚠ 2025-11-24 is the pre-market sliver (query end = 13:30 UTC = 08:30 ET) — but for STATISTICS it still
+#   carries the overnight-posted prior-session (11/21) Open Interest (~1.5 MB), so it is OI-bearing though
+#   session-empty. Effectively 18 full stat-days (10/29-11/21) + the 11/24 overnight-OI sliver.
+#
+# Source bundle preserved at: databento-ingest/jobs/OPRA-20260619-UNVXH5MSFT/ (gitignored) and the SSD
+#   output dir's _provenance/.  Secrets: the API key lives ONLY in gitignored credentials.toml.
+
+[source]
+method = "https"
+job_id = "OPRA-20260619-UNVXH5MSFT"
+# Local Databento bundle manifest = authoritative file list + account-scoped permanent URLs + per-file
+# SHA-256 (wins over job_id; no API call). ABSOLUTE → used verbatim; durable repo jobs/ copy.
+manifest_path = "/Users/knight/code_local/HFT-pipeline-v2/databento-ingest/jobs/OPRA-20260619-UNVXH5MSFT/manifest.json"
+
+[dataset]
+name = "OPRA"
+schema = "statistics"
+symbol = "SPX.OPT,SPY.OPT,SPXW.OPT"   # parent-symbology label (multi-symbol job; NOT a per-file filter)
+start_date = "2025-10-29"
+end_date = "2025-11-24"
+
+[storage]
+# ABSOLUTE → used verbatim. Sibling of cbbo1m_2025-10-29_to_2025-11-24/ under the same OPRA/INDEX/ group
+# (same underlyings, same window, companion schema). Convention: OPRA/{group}/{schema}_{start}_to_{end}.
+output_dir = "/Volumes/WD_Black/HFT-data/OPRA/INDEX/statistics_2025-10-29_to_2025-11-24"
+
+[download]
+parallel = 1   # 19 tiny files (~6.3 MB median, Σ 117 MB) → ~45 s single-stream even at the ~2.7 MB/s cap.
+               # Per-file setup latency is a negligible fraction of total; extra streams add no real gain
+               # and only complicate resume. (DOWNLOAD_OPERATIONS.md: single-stream optimal on this link.)

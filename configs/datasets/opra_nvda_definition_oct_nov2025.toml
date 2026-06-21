@@ -1,0 +1,45 @@
+# OPRA definition NVDA options — the instrument_id -> contract JOIN KEY.
+# Batch job OPRA-20260621-VGMRGRWGKX, Databento account RCKQA83F.
+#
+# ⚠ DELIVERY NOTE: like the sibling NVDA statistics set + the INDEX sets, these 19 definition files were
+#   delivered PRE-DOWNLOADED via the Databento portal and were verified-in-place 2026-06-21 (19/19 size +
+#   SHA-256 vs this manifest, independent python re-hash; + SHA256SUMS regenerated and `shasum -c`). This
+#   config is retained for reproducibility (re-download / `verify --config`); the data already sits at output_dir.
+#
+# WHY: this is the JOIN KEY for the NVDA OPRA complex. With map_symbols=false the cmbp1 quote/trade rows
+#   and the statistics/OI rows carry only numeric instrument_id; the definition schema (InstrumentDefMsg,
+#   rtype 19) maps each instrument_id -> {raw_symbol(OCC), underlying, strike_price, expiration,
+#   instrument_class(C/P)}. OPRA REMAPS instrument_id DAILY, so the join is point-in-time per day — which
+#   is exactly why this is split_duration=day and uses the SAME dataset/symbol/stype as the data sets.
+#   ONE definition pull serves BOTH the cmbp1 and statistics sets. (The cmbp1 stream also embeds symbology,
+#   but the statistics/OI rows do not — so this explicit map is mandatory for OI work.)
+#
+# SCOPE: NVDA single-name options, parent symbology (stype_in=parent, stype_out=instrument_id,
+#   map_symbols=false, split_symbols=false). 19 daily files (opra-pillar-YYYYMMDD.definition.dbn.zst),
+#   Σ 2,849,818 bytes (2.72 MiB / 2.85 MB), span 2025-10-29 .. 2025-11-24.
+#   NOTE: end = 2025-11-25 00:00 UTC (exclusive) → a COMPLETE 11/24 (full instrument set, ~145 KB).
+#
+# Source bundle preserved at: databento-ingest/jobs/OPRA-20260621-VGMRGRWGKX/ (gitignored) and the SSD
+#   output dir's _provenance/.  Secrets: the API key lives ONLY in gitignored credentials.toml.
+
+[source]
+method = "https"
+job_id = "OPRA-20260621-VGMRGRWGKX"
+# ABSOLUTE → used verbatim; durable repo jobs/ copy (authoritative file list + URLs + per-file SHA-256).
+manifest_path = "/Users/knight/code_local/HFT-pipeline-v2/databento-ingest/jobs/OPRA-20260621-VGMRGRWGKX/manifest.json"
+
+[dataset]
+name = "OPRA"
+schema = "definition"
+symbol = "NVDA.OPT"   # parent-symbology label (single-name NVDA options job)
+start_date = "2025-10-29"
+end_date = "2025-11-24"
+
+[storage]
+# ABSOLUTE → used verbatim. Sibling of cmbp1_… and statistics_… under OPRA/NVDA/ (the shared join key).
+# Convention: OPRA/{symbol}/{schema}_{start}_to_{end}.
+output_dir = "/Volumes/WD_Black/HFT-data/OPRA/NVDA/definition_2025-10-29_to_2025-11-24"
+
+[download]
+parallel = 1   # 19 tiny files (~150 KB/day, Σ 2.85 MB). Single-stream is ample.
+               # (Data already on disk + verified; this is for re-download/verify reproducibility only.)

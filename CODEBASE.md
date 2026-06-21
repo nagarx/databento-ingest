@@ -23,6 +23,8 @@ databento-ingest/
     credentials.toml.example          # Template (actual file gitignored)
     datasets/
       opra_nvda_cmbp1_nov2025.toml          # OPRA NVDA CMBP-1, Nov 2025 (8 files; now in the merged 19-file cmbp1_2025-10-29_to_2025-11-24 / 595 GB set)
+      opra_nvda_statistics_oct_nov2025.toml         # OPRA NVDA statistics (Open Interest), Oct-Nov 2025 (19 files, 33.63 MB; OI companion to the NVDA cmbp1 firehose for GEX/PCP/OOI)
+      opra_nvda_definition_oct_nov2025.toml         # OPRA NVDA definition, Oct-Nov 2025 (19 files, 2.85 MB; instrument_id->contract JOIN KEY for the NVDA cmbp1 + statistics sets)
       opra_index_spx_spy_cbbo1m_oct_nov2025.toml  # OPRA INDEX cbbo-1m SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 6.86 GB; index 0DTE/dealer-gamma variance lane)
       opra_index_spx_spy_statistics_oct_nov2025.toml  # OPRA INDEX statistics SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 117 MB; Open-Interest companion to the cbbo-1m set for GEX)
       opra_index_spx_spy_definition_oct_nov2025.toml  # OPRA INDEX definition SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 26 MB; instrument_id->contract JOIN KEY for the cbbo-1m + statistics sets)

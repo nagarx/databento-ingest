@@ -1,0 +1,50 @@
+# OPRA statistics NVDA options — Open Interest for the dealer-gamma/GEX + PCP-deviation + OOI lanes.
+# Batch job OPRA-20260621-9R5BXGGYNH, Databento account RCKQA83F.
+#
+# ⚠ DELIVERY NOTE: like the INDEX statistics/definition sets, these 19 files were delivered
+#   PRE-DOWNLOADED via the Databento portal and were verified-in-place 2026-06-21 (19/19 size + SHA-256
+#   vs this manifest, independent python re-hash; + SHA256SUMS regenerated and `shasum -c`). This config
+#   is retained for reproducibility (re-download / `verify --config`); the data already sits at output_dir.
+#
+# WHY: this is the OPEN-INTEREST companion to the NVDA cmbp1 firehose (cmbp1_2025-10-29_to_2025-11-24).
+#   OI = StatMsg stat_type=9 (carried in `quantity`, attributed to its session via `ts_ref`), ABSENT from
+#   CMBP-1 and every quote/BBO schema and irreducible. It is the weight for OI-weighted dealer-GEX and the
+#   OI denominator for put-call-parity deviation. OPRA `statistics` also carries cleared-volume (6) +
+#   session OHLC (1/4/5/11) + net-change (12), but NOT settlement (3), IV (14) or delta (15) — IV/Greeks
+#   are derived via BSM from the cmbp1 mid-quotes + the NVDA equity underlying level.
+#
+# SCOPE: NVDA single-name options via PARENT symbology (stype_in=parent, stype_out=instrument_id,
+#   map_symbols=false, split_symbols=false) → one daily file = all NVDA contracts' stats, keyed by numeric
+#   instrument_id. Resolve id → {strike,expiry,C/P} via the companion OPRA `definition` set
+#   (opra_nvda_definition_oct_nov2025.toml; one definition pull serves both; OPRA remaps ids daily).
+#
+# CONTENTS: 19 daily files (opra-pillar-YYYYMMDD.statistics.dbn.zst), Σ 33,634,646 bytes (32.08 MiB /
+#   33.63 MB), span 2025-10-29 .. 2025-11-24 (all 19 dates `available`). Sparse stat stream (~1.77 MB/day).
+#   NOTE: end = 2025-11-25 00:00 UTC (exclusive) → a COMPLETE 11/24 session-stats day (NOT the 08:30-ET
+#   pre-open sliver the INDEX statistics job used). OI posts next-morning for the prior session → the
+#   freshest OI in-window ≈ the 11/20-11/21 sessions; attribute every OI by ts_ref.
+#
+# Source bundle preserved at: databento-ingest/jobs/OPRA-20260621-9R5BXGGYNH/ (gitignored) and the SSD
+#   output dir's _provenance/.  Secrets: the API key lives ONLY in gitignored credentials.toml.
+
+[source]
+method = "https"
+job_id = "OPRA-20260621-9R5BXGGYNH"
+# ABSOLUTE → used verbatim; durable repo jobs/ copy (authoritative file list + URLs + per-file SHA-256).
+manifest_path = "/Users/knight/code_local/HFT-pipeline-v2/databento-ingest/jobs/OPRA-20260621-9R5BXGGYNH/manifest.json"
+
+[dataset]
+name = "OPRA"
+schema = "statistics"
+symbol = "NVDA.OPT"   # parent-symbology label (single-name NVDA options job)
+start_date = "2025-10-29"
+end_date = "2025-11-24"
+
+[storage]
+# ABSOLUTE → used verbatim. Sibling of cmbp1_… and definition_… under OPRA/NVDA/ (same symbol, same
+# window, companion schemas). Convention: OPRA/{symbol}/{schema}_{start}_to_{end}.
+output_dir = "/Volumes/WD_Black/HFT-data/OPRA/NVDA/statistics_2025-10-29_to_2025-11-24"
+
+[download]
+parallel = 1   # 19 tiny files (~1.77 MB median, Σ 33.6 MB) → single-stream is ample.
+               # (Data already on disk + verified; this is for re-download/verify reproducibility only.)

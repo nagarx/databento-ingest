@@ -1,0 +1,33 @@
+# GLBX.MDP3 ohlcv-1s, ES+NQ — vol-regime study long history (ACQUIRED + SHA-verified 2026-06-01).
+# Powers the 233-day Vol-Gate-1 re-run (vs the 16-day inconclusive first pass on the Nov MBP-10 sample).
+# See GLBX_FUTURES_DISCOVERY_2026_06_01.md §8/§9 + glbx_discovery/README.md.
+#
+# NOTE — acquired as PARENT symbology (ES.FUT + NQ.FUT, stype_in=parent, ALL contracts interleaved),
+# NOT the ES.v.0/NQ.v.0 continuous originally recommended in §8. Benign: the loader picks front-month
+# per day = max-volume outright (validated across all 4 rolls; see §9). map_symbols=false → resolve
+# instrument_id->contract via the per-file DBN header `mappings`.
+#
+# Integrity already independently verified this session: 290/290 data files SHA-256 OK vs manifest,
+# 0 corrupt / 0 missing. To re-verify via the tool: `python -m databento_ingest verify --config <this>`.
+
+[source]
+method = "https"
+job_id = "GLBX-20260601-HQ4P7DGR5K"
+manifest_path = "../data/GLBX_MDP3/ES_NQ/ohlcv1s_2025-02-03_to_2026-01-07/manifest.json"
+
+[dataset]
+name = "GLBX.MDP3"
+schema = "ohlcv-1s"
+symbol = "ES_NQ"                  # label; actual query symbols = ES.FUT,NQ.FUT (parent)
+start_date = "2025-02-03"
+end_date = "2026-01-07"           # metadata end = 2026-01-07; files glbx-mdp3-20250203 .. 20260107 (290)
+
+[storage]
+# Organized into the canonical layout 2026-06-04: raw job dir GLBX-20260601-HQ4P7DGR5K renamed to
+# data/GLBX_MDP3/ES_NQ/ohlcv1s_2025-02-03_to_2026-01-07/ (+ DATASET.md added; see data/DATA_LAYOUT.md).
+# NOTE: the CLI resolves output_dir relative to the MONOREPO ROOT (CONFIGS_DIR.parent.parent) → NO "../"
+# prefix (matches the 4 sibling dataset configs). manifest_path above is databento-ingest-relative (keeps "../").
+output_dir = "data/GLBX_MDP3/ES_NQ/ohlcv1s_2025-02-03_to_2026-01-07"
+
+[download]
+parallel = 1                      # single-stream proved reliable for GLBX

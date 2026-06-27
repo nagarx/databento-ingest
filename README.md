@@ -2,6 +2,8 @@
 
 High-throughput, safety-first data acquisition from Databento via HTTPS API.
 
+> **Pipeline scope (2026-06-02).** This module is part of an **intraday trading research pipeline** — an experiment-first platform for discovering and validating *any* profitable **intraday** trading edge (no overnight positions), across approach classes (microstructure/HFT, scalping, intraday momentum, intraday statistical arbitrage, …) and instruments (equities, futures, same-day options). The pipeline *originated* as a high-frequency NVDA MBO/LOB microstructure system — that origin explains the "HFT" / "LOB" / "MBO" naming here — and that microstructure-direction program is now one (largely-closed) track among many. **Names are historical; the mission is general.** This module's role: the data-acquisition front door — Databento HTTPS download + streaming SHA-256 verify + atomic writes; acquires any dataset the research needs (equities/futures/options bars or tick/MBO). For the full mission + approach taxonomy + capability-readiness boundary, see root `CLAUDE.md` §Research Scope & Charter (+ `CROSS_ASSET_OFI_FINDINGS_AND_ISSUES_2026_06_01.md` §9).
+
 ## Quick Start
 
 ### 1. Setup
@@ -34,7 +36,7 @@ python -m databento_ingest download \
 ```bash
 python -m databento_ingest download-job \
     --job-id "OPRA-20260305-FP53NRH898" \
-    --output-dir "data/OPRA/NVDA/cmbp1_2025-11-13_to_2025-11-25" \
+    --output-dir "data/OPRA/NVDA/cmbp1_2025-10-29_to_2025-11-24" \
     --symbol NVDA --dataset OPRA
 ```
 

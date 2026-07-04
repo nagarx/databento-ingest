@@ -1,0 +1,20 @@
+# XNAS.ITCH imbalance (NOII) — 86-name regime universe, the PLAN-021 stage-3 cohort feed.
+# Batch job submitted 2026-07-04 (split_symbols=false → one daily file, all 86 symbols;
+# stype_in=raw_symbol; dbn.zst). get_cost pre-flight: $16.1624 / 1084.64 MB billable / 9,684,316 records.
+# Resumable download via databento_ingest.downloader (HTTP Range resume + streaming SHA-256 + atomic rename).
+[source]
+method = "https"
+job_id = "XNAS-20260704-X5QYNPKG59"
+
+[dataset]
+name = "XNAS.ITCH"
+schema = "imbalance"
+symbol = "REGIME_UNIVERSE_86"
+start_date = "2025-02-03"
+end_date = "2026-01-08"
+
+[storage]
+output_dir = "data/XNAS_ITCH/REGIME_UNIVERSE/imbalance_2025-02-03_to_2026-01-08"
+
+[download]
+parallel = 4

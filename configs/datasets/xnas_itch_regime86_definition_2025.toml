@@ -1,0 +1,19 @@
+# XNAS.ITCH definition (tick size / listing venue / round-lot) — 86-name regime universe.
+# Determines the Nasdaq-listed subset (imbalance is listing-venue-specific) + tick-regime context.
+# Batch job submitted 2026-07-04. get_cost pre-flight: $0.1054 / 7.07 MB billable / 19,642 records.
+[source]
+method = "https"
+job_id = "XNAS-20260704-RVXXUVG9FB"
+
+[dataset]
+name = "XNAS.ITCH"
+schema = "definition"
+symbol = "REGIME_UNIVERSE_86"
+start_date = "2025-02-03"
+end_date = "2026-01-08"
+
+[storage]
+output_dir = "data/XNAS_ITCH/REGIME_UNIVERSE/definition_2025-02-03_to_2026-01-08"
+
+[download]
+parallel = 4

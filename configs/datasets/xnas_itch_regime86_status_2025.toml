@@ -1,0 +1,18 @@
+# XNAS.ITCH status (halts / SSR) — 86-name regime universe, the ex-events / clean-session filter adjunct.
+# Batch job submitted 2026-07-04. get_cost pre-flight: $0.0471 / 3.16 MB billable / 78,967 records.
+[source]
+method = "https"
+job_id = "XNAS-20260704-VEK5XS9WYV"
+
+[dataset]
+name = "XNAS.ITCH"
+schema = "status"
+symbol = "REGIME_UNIVERSE_86"
+start_date = "2025-02-03"
+end_date = "2026-01-08"
+
+[storage]
+output_dir = "data/XNAS_ITCH/REGIME_UNIVERSE/status_2025-02-03_to_2026-01-08"
+
+[download]
+parallel = 4

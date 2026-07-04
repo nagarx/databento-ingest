@@ -1,5 +1,5 @@
 # Credentials — NEVER commit
-credentials.toml
+credentials.toml*
 
 # Databento job artifacts (contain API-specific URLs, local data)
 jobs/

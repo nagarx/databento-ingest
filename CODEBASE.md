@@ -10,7 +10,7 @@ High-throughput, safety-first data acquisition from Databento via HTTPS API for 
 databento-ingest/
   CODEBASE.md                         # This file
   README.md                           # Quick start
-  pyproject.toml                      # Package definition (requires: requests; optional: databento)
+  pyproject.toml                      # Package definition (requires: requests, hft-contracts; optional: databento)
   src/databento_ingest/
     __init__.py                       # Version (0.2.0)
     __main__.py                       # python -m databento_ingest
@@ -30,14 +30,20 @@ databento-ingest/
       opra_index_spx_spy_definition_oct_nov2025.toml  # OPRA INDEX definition SPX/SPY/SPXW, Oct-Nov 2025 (19 files, 26 MB; instrument_id->contract JOIN KEY for the cbbo-1m + statistics sets)
       arcx_pillar_nvda_mbo_2025.toml        # ARCX.PILLAR NVDA MBO, Feb 2025 - Jan 2026 (233 files, ~23 GB)
       xnas_basic_nvda_cmbp1_2025.toml       # XNAS.BASIC NVDA CMBP-1, Feb 2025 - Jan 2026 (235 files, ~24 GB)
-      xnas_itch_multi10_mbo_2025h2.toml     # XNAS.ITCH 10-stock MBO, Jul 2025 - Jan 2026 (1340 files, ~14 GB)
+      xnas_itch_multi10_mbo_2025h2.toml     # XNAS.ITCH 10-stock MBO, Jul 2025 - Jan 2026 (1340 files, ~14 GB; split_symbols=true → per-symbol files)
+      glbx_es_nq_ohlcv1s_2025.toml          # GLBX.MDP3 ES+NQ ohlcv-1s (parent symbology ES.FUT,NQ.FUT), Feb 2025 - Jan 2026 (290 files; vol-regime study)
+      equs_mini_regime_bbo1s_2025.toml      # EQUS.MINI bbo-1s, 86-name REGIME_UNIVERSE cohort, 2025-01 - 2026-01 (270 files, ~7.3 GB; split_symbols=false; output_dir on external SSD)
+      equs_mini_regime_ohlcv1s_2025.toml    # EQUS.MINI ohlcv-1s, 86-name REGIME_UNIVERSE cohort (270 files, ~1.05 GB; split_symbols=false; external-SSD output_dir; DIFFERENT account key than bbo-1s)
+      xnas_itch_regime86_imbalance_2025.toml   # NEW (PLAN-021 stage-3): XNAS.ITCH imbalance (NOII / opening-cross) for the 86-name REGIME_UNIVERSE_86 cohort; split_symbols=false → one daily file
+      xnas_itch_regime86_status_2025.toml      # NEW: XNAS.ITCH status (halts / SSR) for the 86-name REGIME_UNIVERSE_86 cohort
+      xnas_itch_regime86_definition_2025.toml  # NEW: XNAS.ITCH definition (tick size / listing venue / round-lot) for the 86-name REGIME_UNIVERSE_86 cohort
   tests/
     test_config.py                    # Config validation + defaults + credentials (18 tests)
-    test_downloader.py                # format_duration, _parse_expected_hash (17 tests)
+    test_downloader.py                # format_duration, _parse_expected_hash, DownloadProgress (20 tests)
     test_manifest.py                  # Manifest schema + create/read + date extraction + atomic-write + traceability (22 tests)
 ```
 
-**Test total: 57** (18 + 17 + 22).
+**Test total: 60** (18 + 20 + 22). Hand-typed counts drift with code (hft-rules §11) — run `python -m pytest --collect-only -q` for the live count.
 
 ## Data Flow
 
@@ -160,6 +166,8 @@ Submit a new batch request via the Databento API. **Requires**: `pip install dat
 
 Submits with `split_duration="day"`, `encoding="dbn"`, `compression="zstd"`.
 
+**Limitation**: `submit_batch_job()` is a minimal single-schema wrapper — it hardcodes those three fields and does NOT set `split_symbols` or `stype_in`. It therefore cannot reproduce the multi-symbol (`split_symbols=false`, `stype_in=raw_symbol`) or `imbalance`/`status`/`definition` cohort jobs that the `xnas_itch_regime86_*` and `equs_mini_regime_*` configs point at — those jobs were submitted externally (their job IDs are recorded in the configs, downloaded via `download`/`download-job`).
+
 ### list-jobs
 
 List batch jobs from the Databento API. **Requires**: `pip install databento`.
@@ -215,7 +223,7 @@ Every downloaded dataset produces a `manifest.json` (our format, distinct from D
 
 **Required fields**: `schema_version`, `symbol`, `dataset`, `source`, `download_method`, `date_range`, `download_timestamp`, `file_count`, `files`.
 
-**Optional fields**: `schema` (omitted when `None`). `checksums` and `metadata` are always written by `create_manifest()` (default to `{}`) but `validate_manifest()` does not require them to be present.
+**Optional fields**: `schema` (omitted when `None`). `checksums` and `metadata` are always present in `create_manifest()` output, but `validate_manifest()` does not require them. Only `checksums` defaults to `{}` (written as `checksums or {}`); `metadata` is a **required** positional argument (no default) and is written verbatim as passed.
 
 **Metadata fields written by the downloader** (all present when `download_job()` creates the manifest):
 - `ingest_tool_version`: Version of the databento-ingest tool (from `__version__`). Enables multi-year reproducibility.
@@ -299,6 +307,11 @@ xnas-itch-{DATE}.mbo.{SYMBOL}.dbn.zst
 
 The downloader passes the symbol string through to manifest metadata without parsing. All files for all symbols are downloaded into the same `output_dir`. The `extract_date_range()` function handles per-symbol filenames by extracting the 8-digit date from any position in the hyphen-delimited filename.
 
+**Two multi-symbol patterns are in use across the configs** (`split_symbols` / `stype_in` are chosen at batch-submission time — externally — not by this tool's config schema; the tool only records the resulting `symbol` field):
+
+- **`split_symbols=true`** (`xnas_itch_multi10_mbo_2025h2.toml`) — a comma-separated `symbol` and per-symbol daily files (`xnas-itch-{DATE}.mbo.{SYMBOL}.dbn.zst`), as above.
+- **`split_symbols=false`** (the `xnas_itch_regime86_*` and `equs_mini_regime_*` 86-name pulls) — **one combined daily file per schema** containing all symbols, with `symbol = "REGIME_UNIVERSE_86"` used as a **label only** (it flows to our output manifest's `symbol` field; it is NOT a comma-separated list and NOT a per-file filter). Filenames carry no per-symbol suffix.
+
 ## Data Directory Convention
 
 ```
@@ -314,6 +327,9 @@ data/
 **Convention**:
 - Options (OPRA): `data/OPRA/{underlying}/{schema}_{start}_to_{end}/`
 - Equities (XNAS): `data/{SYMBOL}_{start}_to_{end}/`
+- Regime-universe cohorts (XNAS.ITCH, EQUS.MINI): `data/{DATASET}/REGIME_UNIVERSE/{schema}_{start}_to_{end}/` — one combined file per day (e.g. `data/XNAS_ITCH/REGIME_UNIVERSE/imbalance_2025-02-03_to_2026-01-08/`).
+- Futures (GLBX.MDP3): `data/GLBX_MDP3/{scope}/{schema}_{start}_to_{end}/` (e.g. `.../ES_NQ/ohlcv1s_...`).
+- `output_dir` may be an absolute path used verbatim — the EQUS.MINI configs point at an external SSD (`/Volumes/WD_Black/HFT-data/...`). (CLI note: a relative `output_dir` resolves against the monorepo root; a relative `manifest_path` resolves against `databento-ingest/` — an asymmetry those configs sidestep with absolute paths.)
 
 ## Types Reference
 
@@ -335,9 +351,9 @@ data/
 Thread-safe aggregate progress tracker for multi-file parallel downloads. Uses `threading.Lock` for all state mutations.
 
 **Accounting model**:
-- `new_bytes`: bytes transferred in the current session only (excludes resumed bytes). Used for speed calculation.
-- `completed_bytes`: total size of fully finished files. Monotonically increasing.
-- Overall progress = `min(completed_bytes + new_bytes, total_bytes)`.
+- `new_bytes`: bytes transferred in the current session only (excludes resumed bytes). Used for BOTH speed AND overall progress.
+- `completed_bytes`: total size of fully finished files. Monotonically increasing — **bookkeeping only** (feeds the file/GB counts), NOT a progress input.
+- Overall progress = `min(new_bytes, total_bytes)`. `completed_bytes` is deliberately NOT added: a completed file's bytes are already accumulated in `new_bytes` (per chunk via `add_chunk`), so `completed_bytes + new_bytes` double-counted them and drove the bar to 100% at ~half-done — the bug removed in commit `0c2b279` and locked by the `TestDownloadProgress` regression tests.
 
 **Constructor**: `DownloadProgress(total_files: int, total_bytes: int)`
 
@@ -382,7 +398,7 @@ Thread-safe aggregate progress tracker for multi-file parallel downloads. Uses `
 7. **Per-thread sessions**: Each download thread creates its own `requests.Session` to avoid thread-safety issues with shared session state. Each session sets `User-Agent: databento-ingest/{version}`.
 8. **Manifest tracking**: Every download produces a manifest.json with file inventory and verified checksums.
 9. **Min-speed enforcement**: If rolling speed drops below 50 KB/s for 60 continuous seconds, the download is aborted with a `ConnectionError` and retried. Prevents indefinite crawling on degraded connections while avoiding false triggers on brief dips.
-10. **Atomic manifest write**: Manifest is written to `manifest.json.tmp` then renamed to `manifest.json`, preventing partial writes from corrupting the manifest.
+10. **Atomic manifest write**: Manifest is written via the `hft_contracts.atomic_io.atomic_write_json` SSoT — a unique per-writer tmp file (`<name>.tmp.<pid>.<ns>.<rand4>`) + `fsync` + `os.replace` + BaseException-safe cleanup (see §Manifest Schema → Write safety) — preventing partial or unflushed manifests. (NOT a fixed `manifest.json.tmp` + `rename`; that was the pre-#PY-371 pattern, which lacked the fsync barrier.)
 11. **Skip-by-size for existing files**: Files already present with matching byte size are skipped without re-downloading. The `verify` subcommand provides explicit SHA-256 hash verification for previously downloaded files.
 12. **Checksums scope**: Checksums recorded in our manifest cover only files downloaded in the current session. Files skipped (already present) are not re-hashed during download; use `verify` for full integrity checks.
 13. **Progress accounting on retry**: When a download attempt fails, `DownloadProgress.reset_file_progress()` undoes the byte count from the failed attempt, keeping the aggregate progress bar accurate.

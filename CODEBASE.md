@@ -352,7 +352,7 @@ Thread-safe aggregate progress tracker for multi-file parallel downloads. Uses `
 
 **Accounting model**:
 - `new_bytes`: bytes transferred in the current session only (excludes resumed bytes). Used for BOTH speed AND overall progress.
-- `completed_bytes`: total size of fully finished files. Monotonically increasing — **bookkeeping only** (feeds the file/GB counts), NOT a progress input.
+- `completed_bytes`: total size of fully finished files. Monotonically increasing — **bookkeeping only** (unused/write-only bookkeeping state — never read for display), NOT a progress input.
 - Overall progress = `min(new_bytes, total_bytes)`. `completed_bytes` is deliberately NOT added: a completed file's bytes are already accumulated in `new_bytes` (per chunk via `add_chunk`), so `completed_bytes + new_bytes` double-counted them and drove the bar to 100% at ~half-done — the bug removed in commit `0c2b279` and locked by the `TestDownloadProgress` regression tests.
 
 **Constructor**: `DownloadProgress(total_files: int, total_bytes: int)`
@@ -375,7 +375,7 @@ Thread-safe aggregate progress tracker for multi-file parallel downloads. Uses `
 | `CHUNK_SIZE` | 4 MB (`4 * 1024 * 1024`) | downloader | Per `iter_content()` call; ~24 calls per 96 MB file vs ~96 at 1 MB |
 | `MAX_RETRIES` | `5` | downloader | With exponential backoff: 10, 20, 40, 80, 160s delays |
 | `RETRY_DELAY_BASE` | `10` seconds | downloader | Base for exponential backoff: `10 * (2 ** attempt)` |
-| `PARALLEL_DOWNLOADS` | `4` | downloader | Default for `download-job` subcommand; 4 x 35 MB/s saturates ~430 Mbps |
+| `PARALLEL_DOWNLOADS` | `4` | downloader | Default for `download-job` subcommand; 4 x 35 MB/s saturates ~1.1 Gbps |
 | `PROGRESS_INTERVAL` | `5` seconds | downloader | Minimum interval between per-file progress log lines |
 | `SPEED_WINDOW` | `30` seconds | downloader | Rolling window for speed average (deque of (time, bytes) samples) |
 | `DISK_SPACE_SAFETY_MARGIN` | `0.95` | downloader | 5% headroom; need `remaining_size < free * 0.95` |

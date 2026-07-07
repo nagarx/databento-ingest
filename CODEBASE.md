@@ -104,6 +104,21 @@ Two modes for obtaining the file manifest:
 
 Both produce the same normalized file list: `[{filename, size, hash, https_url}, ...]`. Only `.dbn.zst` data files are extracted; metadata files (`condition.json`, `metadata.json`) are filtered out.
 
+### Single-file download lifecycle
+
+`download_file()` (downloader.py) is the module's most involved control flow. It runs each file through one bounded retry loop (up to `MAX_RETRIES`); this is the ordered decision-flow that the §Safety Features bullets describe piecewise. Each attempt:
+
+1. **Resume-detect**: if a `<name>.downloading` temp exists and is partial (`0 < size < expected_size`), re-hash it into the running SHA-256 and send an HTTP `Range: bytes=<size>-` header; a temp already at or over the expected size is deleted first. This one top-of-loop check serves BOTH cross-run resume AND cross-retry resume (a preserved partial from a failed attempt re-enters here).
+2. **GET**: issue the streamed request (`http_timeout`), then `raise_for_status()`.
+3. **206 guard**: if resuming but the response is not HTTP 206 (server ignored `Range`), restart from zero — reset the hasher and offset.
+4. **Stream**: for each `CHUNK_SIZE` chunk, append to the temp, update the SHA-256, and feed the rolling `SPEED_WINDOW` speed deque + the aggregate `DownloadProgress`. **Min-speed abort**: if the windowed speed stays below `MIN_SPEED_BPS` for `MIN_SPEED_DURATION`, raise `ConnectionError` (→ retry).
+5. **Size check**: `actual_size != expected_size` → delete temp + `ValueError`.
+6. **SHA-256 check** against the Databento hash → mismatch → delete temp + `ValueError`.
+7. **Atomic promote**: rename the temp to its final path — the file is "final" only at this point (see §Safety Features #1 + DOWNLOAD_OPERATIONS.md §Integrity model) — and mark it done in `DownloadProgress`.
+8. **On error**: undo this attempt's bytes in the progress tracker (`reset_file_progress`), then branch on error class — a transient/network error **preserves** the partial temp (so the next attempt resumes) while a `ValueError` (size/hash/malformed-URL) **deletes** it (a known-bad partial). Back off `RETRY_DELAY_BASE * 2**attempt` and retry. After the final attempt the temp is deleted and the file is reported failed.
+
+Returns `(filename, success, error_message, sha256_hex)`; `download_job()` collects these across the thread pool into the session manifest.
+
 ## CLI Subcommands
 
 Entry point: `python -m databento_ingest <subcommand>` or `databento-ingest <subcommand>` (via `project.scripts`).
@@ -330,6 +345,17 @@ data/
 - Regime-universe cohorts (XNAS.ITCH, EQUS.MINI): `data/{DATASET}/REGIME_UNIVERSE/{schema}_{start}_to_{end}/` — one combined file per day (e.g. `data/XNAS_ITCH/REGIME_UNIVERSE/imbalance_2025-02-03_to_2026-01-08/`).
 - Futures (GLBX.MDP3): `data/GLBX_MDP3/{scope}/{schema}_{start}_to_{end}/` (e.g. `.../ES_NQ/ohlcv1s_...`).
 - `output_dir` may be an absolute path used verbatim — the EQUS.MINI configs point at an external SSD (`/Volumes/WD_Black/HFT-data/...`). (CLI note: a relative `output_dir` resolves against the monorepo root; a relative `manifest_path` resolves against `databento-ingest/` — an asymmetry those configs sidestep with absolute paths.)
+
+## Downstream Boundary / Consumers
+
+databento-ingest is an **entry-point tool** — it exposes no importable Python API to downstream code. Its output boundary is entirely on-disk: it writes `.dbn.zst` data files (+ a v1.3 `manifest.json`) into `output_dir`.
+
+**The `.dbn.zst` files ARE the downstream contract.** Consumers read the zstd-compressed DBN binary directly via Databento's own DBN format libraries — they do NOT read this module's manifest:
+
+- **Rust consumers** parse DBN through Databento's `dbn` crate (pinned to a git tag; see each module's `Cargo.toml`): `MBO-LOB-reconstructor` (the MBO loader, gated behind its default-on `databento` feature — itself composed by `feature-extractor-MBO-LOB` and `mbo-statistical-profiler`, which inherit the loader rather than re-reading files), `basic-quote-processor` (XNAS.BASIC CMBP-1), and `opra-statistical-profiler` (OPRA).
+- **Python discovery harnesses** read the `.dbn.zst` via Databento's DBN tooling, but not all through the Python SDK: `nvda_discovery` + `opra_discovery` use the `databento` SDK reader (`db.DBNStore.from_file`), while `glbx_discovery` + `xsec_equity_discovery` decode through the `dbn` CLI binary (`~/.cargo/bin/dbn <file> -J/-C -s`; `glbx_discovery/momentum/loaders.py` notes the `databento` Python package is not installed there, so the CLI is the verified route). Some also ship their own Rust extractors — `glbx_discovery/analysis/extractor_mbp10` (a direct `dbn`-crate dependency) and `xsec_equity_discovery/extractor` (which has no direct `dbn` dep — it pulls the crate transitively via `MBO-LOB-reconstructor`'s default `databento` feature / `DbnLoader`).
+
+**The v1.3 `manifest.json` is a PROVENANCE / record artifact, NOT a consumed contract** — a per-download inventory (file list + verified SHA-256 checksums + traceability metadata for multi-year reproducibility). No downstream module parses its schema (verified: zero sibling references to its distinctive fields such as `download_method` / `ingest_tool_version`). Post-download integrity re-checks use the `verify` subcommand or an independent `SHA256SUMS` (DOWNLOAD_OPERATIONS.md §"Always verify independently"), never the manifest. This module therefore has no code-level output coupling to its siblings beyond the raw DBN file format itself.
 
 ## Types Reference
 

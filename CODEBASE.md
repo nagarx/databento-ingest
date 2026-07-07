@@ -10,6 +10,7 @@ High-throughput, safety-first data acquisition from Databento via HTTPS API for 
 databento-ingest/
   CODEBASE.md                         # This file
   README.md                           # Quick start
+  DOWNLOAD_OPERATIONS.md              # Operational playbook: large resumable batch pulls (integrity model, single-process rule, account-scoped 403s, chunked wrapper)
   pyproject.toml                      # Package definition (requires: requests, hft-contracts; optional: databento)
   src/databento_ingest/
     __init__.py                       # Version (0.2.0)
@@ -289,7 +290,7 @@ parallel = 2                      # Optional: parallel connections (default: 2, 
 - `storage.output_dir` required
 - `download.parallel` must be 1-8
 
-**Note on `manifest_path`**: Paths under `jobs/` are gitignored. The `jobs/` directory stores Databento-provided manifest bundles that are too large or sensitive to commit.
+**Note on `manifest_path`**: Paths under `jobs/` are gitignored. The `jobs/` directory stores Databento-provided manifest bundles that are too large or sensitive to commit. The bundle↔config mapping is recorded only by each dataset TOML's `manifest_path` field — run `grep manifest_path configs/datasets/*.toml` for the live mapping; on-disk bundles referenced by no config are leftovers from superseded or configless pulls, not load-bearing.
 
 **Note on `symbol`**: Accepts comma-separated symbols for multi-symbol batch jobs (e.g., `"CRSP,DKNG,FANG,..."`). See Multi-Symbol Support below.
 
@@ -355,7 +356,7 @@ databento-ingest is an **entry-point tool** — it exposes no importable Python 
 - **Rust consumers** parse DBN through Databento's `dbn` crate (pinned to a git tag; see each module's `Cargo.toml`): `MBO-LOB-reconstructor` (the MBO loader, gated behind its default-on `databento` feature — itself composed by `feature-extractor-MBO-LOB` and `mbo-statistical-profiler`, which inherit the loader rather than re-reading files), `basic-quote-processor` (XNAS.BASIC CMBP-1), and `opra-statistical-profiler` (OPRA).
 - **Python discovery harnesses** read the `.dbn.zst` via Databento's DBN tooling, but not all through the Python SDK: `nvda_discovery` + `opra_discovery` use the `databento` SDK reader (`db.DBNStore.from_file`), while `glbx_discovery` + `xsec_equity_discovery` decode through the `dbn` CLI binary (`~/.cargo/bin/dbn <file> -J/-C -s`; `glbx_discovery/momentum/loaders.py` notes the `databento` Python package is not installed there, so the CLI is the verified route). Some also ship their own Rust extractors — `glbx_discovery/analysis/extractor_mbp10` (a direct `dbn`-crate dependency) and `xsec_equity_discovery/extractor` (which has no direct `dbn` dep — it pulls the crate transitively via `MBO-LOB-reconstructor`'s default `databento` feature / `DbnLoader`).
 
-**The v1.3 `manifest.json` is a PROVENANCE / record artifact, NOT a consumed contract** — a per-download inventory (file list + verified SHA-256 checksums + traceability metadata for multi-year reproducibility). No downstream module parses its schema (verified: zero sibling references to its distinctive fields such as `download_method` / `ingest_tool_version`). Post-download integrity re-checks use the `verify` subcommand or an independent `SHA256SUMS` (DOWNLOAD_OPERATIONS.md §"Always verify independently"), never the manifest. This module therefore has no code-level output coupling to its siblings beyond the raw DBN file format itself.
+**The v1.3 `manifest.json` is a PROVENANCE / record artifact with ONE known consumer** — a per-download inventory (file list + verified SHA-256 checksums + traceability metadata for multi-year reproducibility). No downstream pipeline MODULE parses its schema (verified: zero sibling references to its distinctive fields such as `download_method` / `ingest_tool_version`) — but the monorepo-root completeness checker `scripts/validate_dataset.py` (a root utility script, NOT a pipeline module per root `CLAUDE.md` §Non-Pipeline Folders) DOES parse two fields: top-level `date_range` (date-range inference in `infer_date_range()`, with a directory-name fallback) and `metadata.failed_files` (failed-download detection in `check_failed_downloads()`). Both reads degrade gracefully (`.get()` defaults + try/except), so renaming either field would silently weaken that validator rather than crash it — treat those two field names as a soft contract. Post-download INTEGRITY re-checks use the `verify` subcommand (which re-hashes against the Databento-provided job manifest, not this file) or an independent `SHA256SUMS` (DOWNLOAD_OPERATIONS.md §"Always verify independently") — never the v1.3 output manifest. Beyond those two soft-contract fields, this module has no code-level output coupling to its siblings other than the raw DBN file format itself.
 
 ## Types Reference
 

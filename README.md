@@ -76,4 +76,4 @@ python -m databento_ingest verify --config configs/datasets/opra_nvda_cmbp1_nov2
 
 ## Architecture
 
-See `CODEBASE.md` for the full technical reference.
+See `CODEBASE.md` for the full technical reference. Before running a **large batch pull**, read `DOWNLOAD_OPERATIONS.md` — the operational playbook (resume semantics, the single-process rule, account-scoped HTTP 403s, independent `SHA256SUMS` verification, the chunked/time-boxed wrapper).

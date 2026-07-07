@@ -1,14 +1,22 @@
 """Manifest creation, reading, and validation for downloaded datasets.
 
 Every downloaded dataset produces a manifest.json recording provenance,
-file inventory, SHA-256 checksums, and download metadata. Downstream
-consumers (validate_dataset.py, feature extractors) read this manifest
-to discover files and verify integrity.
+file inventory, SHA-256 checksums, and download metadata. It is primarily
+a PROVENANCE / record artifact: pipeline modules (feature extractors,
+reconstructor, profilers) do NOT read it — they consume the .dbn.zst files
+directly. Its one known downstream consumer is the monorepo-root
+completeness checker ``scripts/validate_dataset.py``, which parses the
+top-level ``date_range`` and ``metadata.failed_files`` fields (graceful
+``.get()`` fallbacks) — treat those two field names as a soft contract.
+Integrity re-checks go through the ``verify`` subcommand (against the
+Databento-provided job manifest) or an independent SHA256SUMS, not this
+file.
 
 Manifest schema version: 1.3 (added ingest_tool_version + databento_api_version
 metadata fields for multi-year reproducibility; non-breaking additive change).
 
-Schema reference: see CODEBASE.md §Manifest Schema
+Schema reference: see CODEBASE.md §Manifest Schema (v1.3) + §Downstream
+Boundary / Consumers.
 """
 
 import json

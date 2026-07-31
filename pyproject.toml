@@ -13,10 +13,13 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-api = ["databento"]
+api = ["databento>=0.81,<0.82"]
 
 [project.scripts]
 databento-ingest = "databento_ingest.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

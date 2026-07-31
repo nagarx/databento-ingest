@@ -20,8 +20,11 @@ databento-ingest/
     downloader.py                     # HTTPS download engine, Databento manifest loader, DownloadProgress
     manifest.py                       # Our manifest creation/reading/validation (schema v1.3)
     batch.py                          # API batch operations (submit, list-jobs, merge)
+    acquisition.py                    # Typed request, metadata-only plan, guarded submit, canonical artifacts
   configs/
     credentials.toml.example          # Template (actual file gitignored)
+    requests/
+      xnas_itch_regime86_statistics_20250203_20260710.toml  # Sealed 86-name request, $1 cap
     datasets/
       opra_nvda_cmbp1_nov2025.toml          # OPRA NVDA CMBP-1, Nov 2025 (8 files; now in the merged 19-file cmbp1_2025-10-29_to_2025-11-24 / 595 GB set)
       opra_nvda_statistics_oct_nov2025.toml         # OPRA NVDA statistics (Open Interest), Oct-Nov 2025 (19 files, 33.63 MB; OI companion to the NVDA cmbp1 firehose for GEX/PCP/OOI)
@@ -42,9 +45,11 @@ databento-ingest/
     test_config.py                    # Config validation + defaults + credentials (18 tests)
     test_downloader.py                # format_duration, _parse_expected_hash, DownloadProgress (20 tests)
     test_manifest.py                  # Manifest schema + create/read + date extraction + atomic-write + traceability (22 tests)
+    test_acquisition.py               # Request/plan/submit guards, CLI safety, sealed roster
 ```
 
-**Test total: 60** (18 + 20 + 22). Hand-typed counts drift with code (hft-rules §11) — run `python -m pytest --collect-only -q` for the live count.
+Run `python -m pytest --collect-only -q` for the live test count; counts are not
+hand-maintained because they drift with code (hft-rules §11).
 
 ## Data Flow
 
@@ -182,6 +187,10 @@ Submit a new batch request via the Databento API. **Requires**: `pip install dat
 
 Submits with `split_duration="day"`, `encoding="dbn"`, `compression="zstd"`.
 
+**Deprecated for new acquisition.** This legacy compatibility command submits
+without a persisted preflight plan, request fingerprint, freshness check, or
+cost cap. Use `batch-plan` followed by `batch-submit` for new jobs.
+
 **Limitation**: `submit_batch_job()` is a minimal single-schema wrapper — it hardcodes those three fields and does NOT set `split_symbols` or `stype_in`. It therefore cannot reproduce the multi-symbol (`split_symbols=false`, `stype_in=raw_symbol`) or `imbalance`/`status`/`definition` cohort jobs that the `xnas_itch_regime86_*` and `equs_mini_regime_*` configs point at — those jobs were submitted externally (their job IDs are recorded in the configs, downloaded via `download`/`download-job`).
 
 ### list-jobs
@@ -192,6 +201,153 @@ List batch jobs from the Databento API. **Requires**: `pip install databento`.
 |-----|----------|---------|-------------|
 | `--api-key` | No | `""` | Databento API key |
 | `--status` | No | None | Filter by status: `pending`, `processing`, `done`, `expired` |
+
+### batch-plan
+
+Metadata-only planning from a typed request TOML. It never submits or downloads
+data and does not accept an API key argument.
+
+| Arg | Required | Description |
+|-----|----------|-------------|
+| `--config` | Yes | Typed request TOML |
+| `--output` | Yes | New canonical plan JSON; existing paths are refused |
+
+The optional API extra pins the approved Databento Python SDK 0.81 line
+(`databento>=0.81,<0.82`). Credentials resolve from `DATABENTO_API_KEY`, then
+the ignored `credentials.toml`. The plan records the request fingerprint, SDK
+version, top-level dataset range, per-schema ranges, available schemas,
+returned per-date conditions, estimated cost/records/billable bytes, UTC
+estimate timestamp, availability decision, condition-coverage classification,
+and `plan_sha256`. The requested schema must have a complete range covering the
+exact request or planning fails closed. Empty condition metadata, duplicate
+dates, and dates outside the requested interval are invalid. Returned `pending`
+and `missing` conditions block; `degraded` is retained visibly without alone
+making the plan unavailable. Provider rows are preserved in returned order and
+stamped `provider_rows_unverified`: the SDK contract does not establish a dense
+calendar or trading-session response, so a gap is not interpreted as absence.
+Omitted-session detection belongs to a future provenance-bearing venue-calendar
+or landing coverage gate. Dataset and requested-schema range boundaries retain
+full ISO timestamps. Exact dates mean UTC midnight; timezone-aware timestamps
+are normalized to UTC for coverage comparisons; timezone-naive timestamps are
+invalid.
+
+### batch-submit
+
+Guarded one-shot submission from the same request TOML and its plan.
+
+| Arg | Required | Description |
+|-----|----------|-------------|
+| `--config` | Yes | Typed request TOML |
+| `--plan` | Yes | Hash-verified plan JSON |
+
+The command refuses a mismatched fingerprint, invalid plan hash, availability
+failure, estimate above the request cap, or a plan older than 15 minutes. It
+then immediately re-quotes the exact provider query and refuses if the quote is
+over cap. After that potentially slow call it rechecks freshness, persists the
+`attempted` state, samples `submitted_at`, and checks freshness again immediately
+before calling `batch.submit_job` with the complete customization tuple. A plan
+that expires during attempted-state persistence transitions durably to
+`aborted` and makes no provider submission. The configured cap can never exceed the
+process-level `ABSOLUTE_MAX_COST_USD = Decimal("1.00")`, which is checked during
+request construction, plan construction/loading, and again immediately before
+submission. The no-clobber receipt path is derived as
+`<plan-stem>.receipt.json`; it contains only an explicit safe projection of the
+provider response, never the raw response. No credential is serialized.
+
+Submission identity is SHA-256 over only the exact provider submission tuple,
+not the plan path, cost cap, or provenance fields. Before client construction
+or re-quoting, a descriptor-anchored POSIX lock serializes cooperative writers
+and an `O_EXCL` create reserves a new identity under the private
+per-user ledger at `~/.local/state/databento-ingest/submissions/`. Absolute path
+components are traversed through directory file descriptors with
+`O_DIRECTORY`/`O_NOFOLLOW` where supported. The lock remains held through a
+terminal or released transition. State transitions append canonical JSON lines
+to one held record descriptor; every entry carries a monotonic sequence,
+attempt number, and SHA-256 of its predecessor. No transition replaces or
+unlinks the journal pathname. Existing
+directories are never chmodded. The root and `submissions` must be effective-user
+owned with exact mode `0700`; locks and journals must be singly linked regular
+files owned by that user with exact mode `0600`. Symlinks, non-directories,
+corruption, invalid hash chains, unexpected prior state, and lock, record, or
+root path-binding swaps fail closed before submission.
+
+The normal record path is `reserved -> attempted -> consumed`; an expiry after
+durable attempt persistence transitions to `aborted`. A proven pre-attempt
+refusal appends `released`; only that state may append a new `reserved` attempt.
+Transport, response, or persistence ambiguity after `attempted` is preserved
+and blocks automatic retry, including from a copied, renamed, or fresh
+equivalent plan. This is
+local at-most-once within one intact selected root, not provider exactly-once.
+`DATABENTO_INGEST_STATE_DIR` must be absolute and selects an explicitly separate
+local idempotency domain for isolated tests; switching or replacing roots is
+outside the guarantee. The POSIX lock coordinates writers that use this ledger;
+it is not a security boundary against a same-user process that deliberately
+ignores the protocol.
+
+The journal is capped at exactly 1 MiB. `_append_record_payload()` refuses when
+the projected current size plus the canonical UTF-8 line would exceed that
+ceiling and performs no write. `_reserve_submission_identity()` pre-reserves
+the larger complete path `reserved -> released` versus `reserved -> attempted
+-> max(aborted, consumed)` before making `reserved` durable;
+`submit_planned_request()` repeats the successor-headroom check before making
+`attempted` durable. The maximum consumed template uses the worst JSON-escaped
+shape of the 256-UTF-8-byte job-ID limit. Capacity exhaustion therefore occurs
+before client construction on a new/retried reservation and leaves an existing
+journal byte-for-byte unchanged. It has no automatic compaction or bypass:
+preserve the journal and state root, then manually reconcile the exact identity
+before any further provider action.
+
+A syntactically and cryptographically valid final `reserved` is recoverable
+only after this process acquires the identity's exclusive lock. Under the
+enforced provider-after-`attempted` ordering, that state proves the prior writer
+did not call the provider, so recovery appends `released` with reason
+`recovered_orphaned_reservation` and starts the next attempt. Missing newline,
+partial JSON, a bad hash chain, or any other corruption remains fail-closed.
+
+`BatchRequest` accepts at most 2,000 unique symbols and at most 128 UTF-8 bytes
+per symbol. A provider job ID is accepted at no more than 256 UTF-8 bytes; an
+invalid response arrives after durable `attempted`, so it deliberately leaves
+that identity blocked for reconciliation. Submission time is sampled afresh
+through an optional callable at reservation, before `attempted`, immediately
+before the provider call, and at consumption. Production omits the callable and
+uses the UTC wall clock; a scalar timestamp is rejected rather than reused.
+
+## Typed Batch Request Contract
+
+`BatchRequest` is a frozen dataclass loaded from three TOML sections:
+
+- `[request]`: dataset, schema, exact `YYYY-MM-DD` start and exclusive end,
+  ordered unique symbols, symbology, encoding/compression, and every batch
+  customization;
+- `[guard]`: positive decimal-string `max_cost_usd` (parsed as `Decimal` and
+  bounded by the immutable USD 1.00 absolute ceiling);
+- `[provenance]`: provider-metadata source path, sealed SHA-256, and symbol
+  count.
+
+The root sections and every section field use exact allowlists. Unknown root,
+nested, or secret-like fields are rejected rather than ignored. The same exact
+scalar, boolean, enum, date-order, symbol, provenance-hash, and symbol-count
+invariants run in `BatchRequest.__post_init__`, so direct construction and
+`dataclasses.replace` cannot bypass the TOML contract. Caller-owned symbol lists
+are defensively frozen as tuples.
+
+The provider estimate query is exactly `dataset`, `start`, `end`, `symbols`,
+`schema`, and `stype_in`. The fingerprint is SHA-256 over compact, key-sorted
+canonical JSON of the complete secret-free request. Request `end` is exclusive;
+because `metadata.get_dataset_condition` uses inclusive dates, preflight passes
+`end - 1 day` only to that condition call.
+
+`BatchPlan` is also recursively immutable. Its parser requires exact key sets
+and types for the top-level object, provider query, dataset range, every schema
+range, and every condition record before verifying `plan_sha256`; condition
+values use the official enum and exact ISO dates. It rederives schema, range,
+and returned-condition availability from the hashed metadata and requires exact
+agreement with `availability_ok` and `availability_reasons`; creation, loading,
+and submission share this derivation. Defensive deep copies prevent caller-owned
+dictionaries or lists from mutating a reviewed plan. Its hash covers every
+field except the hash itself. Plans and receipts use a
+same-directory temporary file, `fsync`, and an atomic no-clobber hard link, so
+concurrent or repeated commands cannot replace an existing reviewed artifact.
 
 ### merge
 

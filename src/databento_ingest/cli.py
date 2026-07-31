@@ -5,6 +5,8 @@ Subcommands:
     download-job  Download from a batch job by job ID (direct CLI args)
     verify        Verify downloaded files against manifest SHA-256 checksums
     batch         Submit new batch request via Databento API
+    batch-plan    Quote and write a guarded batch plan (metadata only)
+    batch-submit  Re-quote and submit one guarded batch plan
     list-jobs     List batch jobs
     merge         Merge files between directories
 
@@ -18,8 +20,17 @@ Usage:
 """
 
 import argparse
+import os
 import sys
 from pathlib import Path
+
+from databento_ingest.acquisition import (
+    BatchRequest,
+    load_plan,
+    preflight_request,
+    submit_planned_request,
+    write_canonical_json_no_clobber,
+)
 
 from databento_ingest.batch import (
     list_jobs,
@@ -64,6 +75,21 @@ def _require_api_key(creds: Credentials) -> str:
         print("   See: https://databento.com/portal/keys")
         sys.exit(1)
     return creds.api_key
+
+
+def _require_safe_batch_api_key() -> str:
+    """Resolve safe batch credentials without accepting command-line secrets."""
+    environment_key = os.environ.get("DATABENTO_API_KEY", "")
+    if environment_key:
+        return environment_key
+    credentials = load_credentials()
+    if credentials.api_key:
+        return credentials.api_key
+    print(
+        "Error: API key required. Set DATABENTO_API_KEY or configure credentials.toml.",
+    )
+    print("   See: https://databento.com/portal/keys")
+    sys.exit(1)
 
 
 def cmd_download(args: argparse.Namespace):
@@ -158,6 +184,44 @@ def cmd_batch(args: argparse.Namespace):
         sys.exit(1)
 
 
+def cmd_batch_plan(args: argparse.Namespace) -> None:
+    """Run metadata-only preflight and atomically create a canonical plan."""
+    try:
+        request = BatchRequest.from_toml(Path(args.config))
+        plan = preflight_request(_require_safe_batch_api_key(), request)
+        output_path = Path(args.output)
+        write_canonical_json_no_clobber(output_path, plan.to_dict())
+    except (OSError, ImportError, ValueError) as exc:
+        print(f"Error: {exc}")
+        sys.exit(1)
+    print(f"Batch plan written: {output_path}")
+    print(f"Estimated cost: ${plan.estimated_cost_usd} (cap ${plan.max_cost_usd})")
+    print(f"Availability: {'PASS' if plan.availability_ok else 'FAIL'}")
+
+
+def cmd_batch_submit(args: argparse.Namespace) -> None:
+    """Load, re-quote, and submit one guarded plan; then write its receipt."""
+    try:
+        request = BatchRequest.from_toml(Path(args.config))
+        plan_path = Path(args.plan)
+        plan = load_plan(plan_path)
+        api_key = _require_safe_batch_api_key()
+        receipt_path = plan_path.with_name(f"{plan_path.stem}.receipt.json")
+        if receipt_path.exists():
+            raise FileExistsError(f"submission receipt already exists: {receipt_path}")
+        receipt = submit_planned_request(
+            api_key,
+            request,
+            plan,
+        )
+        write_canonical_json_no_clobber(receipt_path, receipt)
+    except (OSError, ImportError, ValueError) as exc:
+        print(f"Error: {exc}")
+        sys.exit(1)
+    print(f"Batch job submitted: {receipt['job_id']}")
+    print(f"Submission receipt written: {receipt_path}")
+
+
 def cmd_list_jobs(args: argparse.Namespace):
     """List batch jobs."""
     creds = _resolve_credentials(args)
@@ -212,7 +276,8 @@ def cmd_merge(args: argparse.Namespace):
     )
 
 
-def main():
+def build_parser() -> argparse.ArgumentParser:
+    """Build the CLI parser without inspecting credentials or external state."""
     parser = argparse.ArgumentParser(
         prog="databento-ingest",
         description="Databento data acquisition — high-throughput HTTPS downloads",
@@ -291,6 +356,24 @@ Examples:
     batch_parser.add_argument("--output-dir", required=True, help="Output directory")
     batch_parser.add_argument("--schema", default="mbo", help="Schema (default: mbo)")
 
+    # --- batch-plan (cost-capped, metadata only) ---
+    plan_parser = subparsers.add_parser(
+        "batch-plan",
+        help="Quote a typed request and atomically write a guarded plan",
+    )
+    plan_parser.add_argument("--config", required=True, help="Typed batch request TOML")
+    plan_parser.add_argument("--output", required=True, help="New plan JSON path")
+
+    # --- batch-submit (guarded one-shot submission) ---
+    submit_parser = subparsers.add_parser(
+        "batch-submit",
+        help="Re-quote and submit one fresh matching under-cap plan",
+    )
+    submit_parser.add_argument(
+        "--config", required=True, help="Typed batch request TOML"
+    )
+    submit_parser.add_argument("--plan", required=True, help="Hash-verified plan JSON")
+
     # --- list-jobs ---
     list_parser = subparsers.add_parser("list-jobs", help="List batch jobs")
     list_parser.add_argument("--api-key", default="", help="Databento API key")
@@ -314,6 +397,11 @@ Examples:
     merge_parser.add_argument("--target", required=True, help="Target directory")
     merge_parser.add_argument("--dry-run", action="store_true", help="Show what would be done")
 
+    return parser
+
+
+def main():
+    parser = build_parser()
     args = parser.parse_args()
 
     if args.command is None:
@@ -324,6 +412,8 @@ Examples:
         "download": cmd_download,
         "download-job": cmd_download_job,
         "batch": cmd_batch,
+        "batch-plan": cmd_batch_plan,
+        "batch-submit": cmd_batch_submit,
         "list-jobs": cmd_list_jobs,
         "verify": cmd_verify,
         "merge": cmd_merge,

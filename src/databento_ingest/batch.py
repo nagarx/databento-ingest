@@ -10,6 +10,23 @@ import shutil
 from pathlib import Path
 from typing import Optional
 
+from databento_ingest.acquisition import (
+    BatchPlan,
+    BatchRequest,
+    preflight_request,
+    submit_planned_request,
+)
+
+__all__ = [
+    "BatchPlan",
+    "BatchRequest",
+    "list_jobs",
+    "merge_datasets",
+    "preflight_request",
+    "submit_batch_job",
+    "submit_planned_request",
+]
+
 
 def submit_batch_job(
     api_key: str,

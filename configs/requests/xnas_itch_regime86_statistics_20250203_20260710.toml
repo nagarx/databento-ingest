@@ -1,0 +1,37 @@
+# XNAS.ITCH statistics request for the sealed 86-symbol regime universe.
+# End is exclusive, matching the Databento Historical API request contract.
+
+[request]
+dataset = "XNAS.ITCH"
+schema = "statistics"
+start = "2025-02-03"
+end = "2026-07-11"
+symbols = [
+  "NVDA", "SPY", "QQQ", "IWM", "DIA", "RSP", "VXXB", "VXZB", "UVXY",
+  "XLK", "XLC", "XLY", "XLP", "XLF", "XLE", "XLI", "XLU", "XLV", "XLB", "XLRE",
+  "SHY", "IEF", "TLT", "TIP", "HYG", "LQD", "GLD", "USO", "CPER", "UUP",
+  "SMH", "AMD", "AVGO", "TSM", "ASML", "AMAT", "LRCX", "KLAC", "MU", "INTC",
+  "QCOM", "MRVL", "ARM", "SMCI", "MSFT", "AAPL", "AMZN", "GOOGL", "META", "TSLA",
+  "EEM", "FXI", "EFA", "EWJ", "KWEB", "SOXX", "IGV", "XBI", "KRE", "ITB",
+  "XRT", "OIH", "XME", "PLTR", "CSCO", "SNDK", "TXN", "ADI", "NXPI", "MCHP",
+  "WDC", "DELL", "ORCL", "BAC", "JPM", "C", "GS", "MS", "SCHW", "BLK", "BX",
+  "XOM", "CVX", "COP", "COST", "WMT",
+]
+stype_in = "raw_symbol"
+stype_out = "instrument_id"
+encoding = "dbn"
+compression = "zstd"
+pretty_px = false
+pretty_ts = false
+map_symbols = false
+split_symbols = false
+split_duration = "day"
+delivery = "download"
+
+[guard]
+max_cost_usd = "1.00"
+
+[provenance]
+symbol_source_path = "/Volumes/WD_Black/HFT-data/EQUS_MINI/REGIME_UNIVERSE/ohlcv1s_2025-01-02_to_2026-01-30/_provenance/metadata.json"
+symbol_source_sha256 = "e127c9152df6bdc23a48b38bad9248b0ed196572e99b3e66b84934a406e8ac1c"
+symbol_count = 86

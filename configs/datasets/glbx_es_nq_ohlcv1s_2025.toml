@@ -13,7 +13,23 @@
 [source]
 method = "https"
 job_id = "GLBX-20260601-HQ4P7DGR5K"
-manifest_path = "../data/GLBX_MDP3/ES_NQ/ohlcv1s_2025-02-03_to_2026-01-07/manifest.json"
+# ⚠️ REPOINTED 2026-08-02 — the previous value was
+#     "../data/GLBX_MDP3/ES_NQ/ohlcv1s_2025-02-03_to_2026-01-07/manifest.json"
+# and it was a LATENT DESTRUCTIVE PATH. The CLI resolves the INPUT receipt against
+# CONFIGS_DIR.parent (cli.py:92) and the OUTPUT manifest against CONFIGS_DIR.parent.parent
+# (cli.py:85 -> manifest.py:87). Those two bases differ by exactly one level, which the
+# leading "../" cancelled — so both resolved to THE SAME FILE. manifest.py:89 then writes it
+# with atomic_write_json, i.e. atomically TOTAL: a ~500-byte ingest record would have replaced
+# the 147,197-byte PROVIDER-NATIVE receipt (292 file objects, keys [job_id, files], no
+# schema_version), silently, exit 0, from the documented invocation
+#     python -m databento_ingest download --config configs/datasets/glbx_es_nq_ohlcv1s_2025.toml
+# There is no overwrite guard in manifest.py. The only thing preventing loss today was that all
+# 290 sizes match so the run early-returns — an accident, not a safeguard.
+# The receipt is now preserved byte-identically at the path below
+# (sha256 5e75f5aca7e1285f3ea94ecb128b194fffcaae127f666e56a776a941581a7f1d), which is the
+# jobs/<JOB-ID>/manifest.json pattern ALL 11 sibling configs already use. The SSD copy is
+# untouched and remains the provider's own artifact.
+manifest_path = "jobs/GLBX-20260601-HQ4P7DGR5K/manifest.json"
 
 [dataset]
 name = "GLBX.MDP3"

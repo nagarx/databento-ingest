@@ -3,13 +3,19 @@
 > Operational playbook + known issues, distilled from acquiring the GLBX (24 GB) and
 > OPRA (296 GB downloaded this campaign; the merged NVDA OPRA set is now 595 GB) datasets in 2026-05/06 over a slow, bufferbloat-prone link.
 > Pairs with `CODEBASE.md` (the tool internals). Last updated 2026-06-14.
+>
+> **Custody correction (2026-08-02).** Read
+> [`docs/MANIFESTS_AND_CUSTODY.md`](docs/MANIFESTS_AND_CUSTODY.md). The provider
+> receipt, local v1.3 session manifest, independent checksum declaration, and
+> current-byte audit are distinct evidence roles. Never overwrite a retained
+> receipt or infer current integrity from session membership alone.
 
 ## The method (what worked)
 - **`download-job` is the entry point** for a pre-submitted Databento batch job:
   `python -m databento_ingest download-job --job-id <ID> --output-dir <dir> --manifest <local manifest.json> --symbol <S> --dataset <DS> --parallel 1 --api-key <key>`.
 - **Single-stream (`--parallel 1`)** is optimal on a bandwidth-capped link (see §Connection). Parallel only fragments into more partial temps with no throughput gain.
 - **Resumable by design**: completed files skip by exact size; partial `<name>.downloading` temps Range-resume. Re-run the *same* command to resume. **Never run two `download-job` processes on the same dir** (no lockfile).
-- **Integrity model (trust it):** a temp is promoted to its final name ONLY after both byte-size AND full SHA-256 (vs the manifest) pass (`downloader.py` ~:487-502). So **no interruption — SIGTERM, SIGKILL, power loss — can leave a corrupt *final* file**; the worst case is a re-hashable partial temp.
+- **Integrity model (bounded):** newly transferred bytes are promoted to the final name only after byte-size and full SHA-256 agreement with the selected provider object (`downloader.py` download path). This protects ordinary interrupted transfers, but the data-file path has no payload/directory `fsync`, and an existing matching-size final file is skipped without rehashing. Therefore power-loss durability and current-byte identity require the independent verification step below; do not infer them from the final filename or downloader exit status.
 - **Always verify independently after**: each dataset dir gets a `SHA256SUMS`; re-check with `cd <dir> && shasum -a 256 -c SHA256SUMS`. Do not trust the tool's exit code alone.
 
 ## The chunked / time-boxed wrapper
@@ -33,4 +39,4 @@
 3. **No env-var API-key path** — only `--api-key` or `credentials.toml`. (The wrapper bridges `DATABENTO_API_KEY` → `--api-key`.)
 4. **Download URLs are account-scoped** (`…/batch/download/<ACCOUNT>/<job>/…`): the key must belong to the job's account, else **HTTP 403 `auth_user_does_not_match_api_key`**. Multi-account users: match key to job.
 5. **No `gtimeout`/`timeout` on this macOS** — the Python wrapper provides the budget instead.
-6. **Sidecar manifest**: on completion `download-job` writes its own v1.3 `manifest.json` listing only the *session's* files — it does **not** describe pre-existing files in a merge dir. For merged dirs, rely on `SHA256SUMS` + `DATASET.md`.
+6. **Local session manifest**: this is not a Databento-native receipt. In a mixed run, `files` contains successful new downloads plus matching-size existing skips, while `checksums` contains only newly downloaded files; failures are listed separately. If all expected files already exist at matching size, no new session manifest is written. For merged directories, retain exact provider receipts and use a freshly verified checksum ledger plus the current dataset release documentation.

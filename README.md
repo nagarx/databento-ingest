@@ -2,7 +2,14 @@
 
 High-throughput, safety-first data acquisition from Databento via HTTPS API.
 
-> **Pipeline scope (2026-06-02).** This module is part of an **intraday trading research pipeline** — an experiment-first platform for discovering and validating *any* profitable **intraday** trading edge (no overnight positions), across approach classes (microstructure/HFT, scalping, intraday momentum, intraday statistical arbitrage, …) and instruments (equities, futures, same-day options). The pipeline *originated* as a high-frequency NVDA MBO/LOB microstructure system — that origin explains the "HFT" / "LOB" / "MBO" naming here — and that microstructure-direction program is now one (largely-closed) track among many. **Names are historical; the mission is general.** This module's role: the data-acquisition front door — Databento HTTPS download + streaming SHA-256 verify + atomic writes; acquires any dataset the research needs (equities/futures/options bars or tick/MBO). For the full mission + approach taxonomy + capability-readiness boundary, see root `CLAUDE.md` §Research Scope & Charter (+ `CROSS_ASSET_OFI_FINDINGS_AND_ISSUES_2026_06_01.md` §9).
+> **Pipeline scope (2026-06-02).** This module is part of an **intraday trading research pipeline** — an experiment-first platform for discovering and validating *any* profitable **intraday** trading edge (no overnight positions), across approach classes (microstructure/HFT, scalping, intraday momentum, intraday statistical arbitrage, …) and instruments (equities, futures, same-day options). The pipeline *originated* as a high-frequency NVDA MBO/LOB microstructure system — that origin explains the "HFT" / "LOB" / "MBO" naming here — and that microstructure-direction program is now one (largely-closed) track among many. **Names are historical; the mission is general.** This module is one acquisition route: Databento HTTPS download, streaming SHA-256/size verification, and rename-after-verification. The retained SSD corpus also contains objects acquired through other or older routes, so this module is not universal lineage authority. Payload promotion has no data-file/directory `fsync` or same-output writer lock; it is not a power-loss durability guarantee. For the full mission + approach taxonomy + capability-readiness boundary, see root `AGENTS.md`.
+
+> **Custody boundary (2026-08-02).** Read
+> [`docs/MANIFESTS_AND_CUSTODY.md`](docs/MANIFESTS_AND_CUSTODY.md) before using,
+> moving, merging, re-downloading, or documenting retained Databento data. A
+> provider-native receipt, this tool's v1.3 session manifest, a `SHA256SUMS`
+> declaration, a condition file, and a fresh audit digest prove different
+> things and are not interchangeable.
 
 ## Quick Start
 
@@ -67,13 +74,13 @@ python -m databento_ingest verify --config configs/datasets/opra_nvda_cmbp1_nov2
 ## Features
 
 - **HTTPS downloads** with Databento API key authentication
-- **Atomic writes** — files are only finalized after SHA-256 verification
+- **Verified namespace promotion** — newly transferred files are renamed only after size and SHA-256 match; payload bytes are not `fsync`-durable and concurrent writers are not locked
 - **Streaming SHA-256** — verification happens during download, zero extra I/O
 - **Resume support** — interrupted downloads resume automatically
 - **Parallel downloads** — configurable connections (default: 2 for config-driven, 4 for direct CLI)
 - **Disk space checks** — validates free space before starting
-- **Manifest tracking** — every download produces a manifest.json
+- **Session-manifest tracking** — a run that transfers at least one file writes a local v1.3 result record; mixed-run checksums cover newly downloaded files only, and an all-existing run returns without a new manifest
 
 ## Architecture
 
-See `CODEBASE.md` for the full technical reference. Before running a **large batch pull**, read `DOWNLOAD_OPERATIONS.md` — the operational playbook (resume semantics, the single-process rule, account-scoped HTTP 403s, independent `SHA256SUMS` verification, the chunked/time-boxed wrapper).
+See `CODEBASE.md` for the full technical reference. Before running a **large batch pull**, read `DOWNLOAD_OPERATIONS.md` and `docs/MANIFESTS_AND_CUSTODY.md` — the operational and evidence-role boundaries for resume, single-writer discipline, account-scoped HTTP 403s, independent verification, and retained receipts.

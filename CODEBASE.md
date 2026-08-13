@@ -2,7 +2,13 @@
 
 High-throughput, safety-first data acquisition from Databento via HTTPS API for the trading research pipeline.
 
-> **Pipeline scope (2026-06-02).** This module is part of an **intraday trading research pipeline** — an experiment-first platform for discovering and validating *any* profitable **intraday** trading edge (no overnight positions), across approach classes (microstructure/HFT, scalping, intraday momentum, intraday statistical arbitrage, …) and instruments (equities, futures, same-day options). The pipeline *originated* as a high-frequency NVDA MBO/LOB microstructure system — that origin explains the "HFT" / "LOB" / "MBO" naming here — and that microstructure-direction program is now one (largely-closed) track among many. **Names are historical; the mission is general.** This module's role: the data-acquisition front door — Databento HTTPS download + streaming SHA-256 verify + atomic writes; acquires any dataset the research needs (equities/futures/options bars or tick/MBO). For the full mission + approach taxonomy + capability-readiness boundary, see root `CLAUDE.md` §Research Scope & Charter (+ `CROSS_ASSET_OFI_FINDINGS_AND_ISSUES_2026_06_01.md` §9).
+> **Pipeline scope (2026-06-02).** This module is part of an **intraday trading research pipeline** — an experiment-first platform for discovering and validating *any* profitable **intraday** trading edge (no overnight positions), across approach classes (microstructure/HFT, scalping, intraday momentum, intraday statistical arbitrage, …) and instruments (equities, futures, same-day options). The pipeline *originated* as a high-frequency NVDA MBO/LOB microstructure system — that origin explains the "HFT" / "LOB" / "MBO" naming here — and that microstructure-direction program is now one (largely-closed) track among many. **Names are historical; the mission is general.** This module is one acquisition route: Databento HTTPS download, streaming SHA-256/size verification, and rename-after-verification. The retained SSD corpus includes objects from other or older routes; current identity and lineage come from the release-fenced catalog, not from assuming this tool handled every object. Data-file promotion has no file/directory `fsync` or same-output writer lock. For the full mission + approach taxonomy + capability-readiness boundary, see root `AGENTS.md`.
+
+> **Current custody authority (2026-08-02).** Use
+> [`docs/MANIFESTS_AND_CUSTODY.md`](docs/MANIFESTS_AND_CUSTODY.md) for artifact
+> roles, current session-manifest semantics, release identity, provenance tiers,
+> conflicts, and implemented-versus-manual rails. A file named `manifest.json`
+> is not automatically a Databento-native receipt.
 
 ## Module Structure
 
@@ -68,7 +74,7 @@ credentials.toml ─────> cli.py ──> api_key
                    + streaming SHA-256 verification
                         |              |               |
                         v              v               v
-                   SHA-256 match? ──> atomic rename to final
+                   SHA-256 match? ──> namespace rename to final
                    SHA-256 fail?  ──> delete + hard error
                                        |
                                        v
@@ -115,7 +121,7 @@ Both produce the same normalized file list: `[{filename, size, hash, https_url},
 4. **Stream**: for each `CHUNK_SIZE` chunk, append to the temp, update the SHA-256, and feed the rolling `SPEED_WINDOW` speed deque + the aggregate `DownloadProgress`. **Min-speed abort**: if the windowed speed stays below `MIN_SPEED_BPS` for `MIN_SPEED_DURATION`, raise `ConnectionError` (→ retry).
 5. **Size check**: `actual_size != expected_size` → delete temp + `ValueError`.
 6. **SHA-256 check** against the Databento hash → mismatch → delete temp + `ValueError`.
-7. **Atomic promote**: rename the temp to its final path — the file is "final" only at this point (see §Safety Features #1 + DOWNLOAD_OPERATIONS.md §Integrity model) — and mark it done in `DownloadProgress`.
+7. **Verified promote**: rename the temp to its final path only after size/hash agreement and mark it done in `DownloadProgress`. The rename is namespace-atomic, but there is no payload or directory `fsync`; it is not a power-loss durability claim.
 8. **On error**: undo this attempt's bytes in the progress tracker (`reset_file_progress`), then branch on error class — a transient/network error **preserves** the partial temp (so the next attempt resumes) while a `ValueError` (size/hash/malformed-URL) **deletes** it (a known-bad partial). Back off `RETRY_DELAY_BASE * 2**attempt` and retry. After the final attempt the temp is deleted and the file is reported failed.
 
 Returns `(filename, success, error_message, sha256_hex)`; `download_job()` collects these across the thread pool into the session manifest.
@@ -207,7 +213,7 @@ Skips files that already exist with matching size. Overwrites on size mismatch.
 
 ## Manifest Schema (v1.3)
 
-Every downloaded dataset produces a `manifest.json` (our format, distinct from Databento's):
+A run that downloads at least one file produces a local `manifest.json` (our format, distinct from Databento's). On a mixed run, `files` includes newly downloaded files plus matching-size skips, while `checksums` includes only newly downloaded files. Failed objects are excluded from `files` and listed in `metadata.failed_files`. If every object already exists at the expected size, the current downloader returns before writing a new session manifest:
 
 ```json
 {
@@ -290,7 +296,16 @@ parallel = 2                      # Optional: parallel connections (default: 2, 
 - `storage.output_dir` required
 - `download.parallel` must be 1-8
 
-**Note on `manifest_path`**: Paths under `jobs/` are gitignored. The `jobs/` directory stores Databento-provided manifest bundles that are too large or sensitive to commit. The bundle↔config mapping is recorded only by each dataset TOML's `manifest_path` field — run `grep manifest_path configs/datasets/*.toml` for the live mapping; on-disk bundles referenced by no config are leftovers from superseded or configless pulls, not load-bearing.
+**Note on `manifest_path`**: Paths under `jobs/` are gitignored. The `jobs/`
+directory stores provider manifest bundles that are too large or sensitive to
+commit. Do not assume the checked-in config mapping is currently executable.
+As audited on 2026-08-02, the three XNAS regime configs omit
+`manifest_path`; the two EQUS.MINI configs still point to removed top-level
+paths, while candidate historical receipts exist below the SSD `_archive/`
+tree. Resolve and authenticate the intended provider receipt before a download
+or `verify` operation. The `verify` subcommand requires the config's
+`manifest_path` to exist and hashes against that provider-format manifest; it
+does not use the module's local v1.3 session `manifest.json`.
 
 **Note on `symbol`**: Accepts comma-separated symbols for multi-symbol batch jobs (e.g., `"CRSP,DKNG,FANG,..."`). See Multi-Symbol Support below.
 
@@ -351,10 +366,30 @@ data/
 
 databento-ingest is an **entry-point tool** — it exposes no importable Python API to downstream code. Its output boundary is entirely on-disk: it writes `.dbn.zst` data files (+ a v1.3 `manifest.json`) into `output_dir`.
 
-**The `.dbn.zst` files ARE the downstream contract.** Consumers read the zstd-compressed DBN binary directly via Databento's own DBN format libraries — they do NOT read this module's manifest:
+**The `.dbn.zst` byte format is the decoder boundary, not complete artifact
+identity.** Consumers read zstd-compressed DBN directly via Databento's DBN
+libraries and do not use this module's manifest as a decode contract. A
+retained object is identified by the catalog release tuple (release, relative
+path, compressed SHA-256), with schema and provenance evidence alongside it:
 
-- **Rust consumers** parse DBN through Databento's `dbn` crate (pinned to a git tag; see each module's `Cargo.toml`): `MBO-LOB-reconstructor` (the MBO loader, gated behind its default-on `databento` feature — itself composed by `feature-extractor-MBO-LOB` and `mbo-statistical-profiler`, which inherit the loader rather than re-reading files), `basic-quote-processor` (XNAS.BASIC CMBP-1), and `opra-statistical-profiler` (OPRA).
-- **Python discovery harnesses** read the `.dbn.zst` via Databento's DBN tooling, but not all through the Python SDK: `nvda_discovery` + `opra_discovery` use the `databento` SDK reader (`db.DBNStore.from_file`), while `glbx_discovery` + `xsec_equity_discovery` decode through the `dbn` CLI binary (`~/.cargo/bin/dbn <file> -J/-C -s`; `glbx_discovery/momentum/loaders.py` notes the `databento` Python package is not installed there, so the CLI is the verified route). Some also ship their own Rust extractors — `glbx_discovery/analysis/extractor_mbp10` (a direct `dbn`-crate dependency) and `xsec_equity_discovery/extractor` (which has no direct `dbn` dep — it pulls the crate transitively via `MBO-LOB-reconstructor`'s default `databento` feature / `DbnLoader`).
+- **Rust consumers** parse DBN through Databento's `dbn` crate (pinned per
+  consumer): `MBO-LOB-reconstructor` provides the MBO loader used in-process by
+  both `feature-extractor-MBO-LOB` and `mbo-statistical-profiler`; each of those
+  consumers opens the DBN input through that shared loader. Direct readers also
+  include `basic-quote-processor` (XNAS.BASIC CMBP-1) and
+  `opra-statistical-profiler` (OPRA).
+- **Python and research consumers (representative, not exhaustive)** read the
+  DBN bytes through several independently versioned boundaries. SDK readers
+  include `nvda_discovery`, `opra_discovery`,
+  `multiday_discovery/vrp_0dte/opra_read_0dte.py`, and the root E9 validation
+  scripts. `discovery_panels/src/discovery_panels/dbn.py` is the shared
+  provenance-pinned DBN-CLI boundary used by newer harnesses. Other GLBX and
+  cross-sectional loaders invoke the `dbn` CLI directly; some studies also
+  ship Rust extractors (`glbx_discovery/analysis/extractor_mbp10` and
+  `xsec_equity_discovery/extractor`, the latter through the reconstructor's
+  transitive DBN feature). This list is topology guidance, not a complete
+  consumer registry; search live `DBNStore.from_file`, CLI invocations, and
+  `dbn` crate dependencies before changing a raw-data contract.
 
 **The v1.3 `manifest.json` is a PROVENANCE / record artifact with ONE known consumer** — a per-download inventory (file list + verified SHA-256 checksums + traceability metadata for multi-year reproducibility). No downstream pipeline MODULE parses its schema (verified: zero sibling references to its distinctive fields such as `download_method` / `ingest_tool_version`) — but the monorepo-root completeness checker `scripts/validate_dataset.py` (a root utility script, NOT a pipeline module per root `CLAUDE.md` §Non-Pipeline Folders) DOES parse two fields: top-level `date_range` (date-range inference in `infer_date_range()`, with a directory-name fallback) and `metadata.failed_files` (failed-download detection in `check_failed_downloads()`). Both reads degrade gracefully (`.get()` defaults + try/except), so renaming either field would silently weaken that validator rather than crash it — treat those two field names as a soft contract. Post-download INTEGRITY re-checks use the `verify` subcommand (which re-hashes against the Databento-provided job manifest, not this file) or an independent `SHA256SUMS` (DOWNLOAD_OPERATIONS.md §"Always verify independently") — never the v1.3 output manifest. Beyond those two soft-contract fields, this module has no code-level output coupling to its siblings other than the raw DBN file format itself.
 
@@ -416,14 +451,14 @@ Thread-safe aggregate progress tracker for multi-file parallel downloads. Uses `
 
 ## Safety Features
 
-1. **Atomic writes**: Downloads write to `.downloading` temp file, rename to final path only after BOTH size AND SHA-256 verification pass.
+1. **Verified namespace promotion**: Downloads write to a `.downloading` temp and rename to the final path only after BOTH size and SHA-256 verification pass. The data-file path does not `fsync` the payload or directory and has no same-output writer lock; independent post-write verification remains mandatory.
 2. **SHA-256 verification against Databento hashes**: Hash computed during download at zero extra I/O cost (streaming `hashlib.sha256().update()` per chunk), then compared against Databento's authoritative hash. **Mismatch is a hard error** -- file is deleted, not accepted.
 3. **Disk space pre-check**: Validates sufficient space for *remaining* (not yet downloaded) files before starting, with 5% safety margin.
 4. **Resume support**: Already-completed files (verified by exact byte size) are skipped. Partial `.downloading` files are preserved across runs and resumed via HTTP Range headers. HTTP 206 response is verified -- if the server ignores the Range header, the download restarts cleanly.
 5. **Retry with exponential backoff**: Up to 5 attempts per file for transient network errors. Delays: 10, 20, 40, 80, 160 seconds.
 6. **Smart stale temp cleanup**: Removes `.downloading` files only for files NOT in the current download queue. Partial temps for files about to be downloaded are preserved for resume.
 7. **Per-thread sessions**: Each download thread creates its own `requests.Session` to avoid thread-safety issues with shared session state. Each session sets `User-Agent: databento-ingest/{version}`.
-8. **Manifest tracking**: Every download produces a manifest.json with file inventory and verified checksums.
+8. **Session-manifest tracking**: Runs with at least one successful new download produce a local v1.3 result record. In mixed runs, `files` includes size-only skips but `checksums` covers only newly downloaded files. An all-existing run produces no new manifest.
 9. **Min-speed enforcement**: If rolling speed drops below 50 KB/s for 60 continuous seconds, the download is aborted with a `ConnectionError` and retried. Prevents indefinite crawling on degraded connections while avoiding false triggers on brief dips.
 10. **Atomic manifest write**: Manifest is written via the `hft_contracts.atomic_io.atomic_write_json` SSoT — a unique per-writer tmp file (`<name>.tmp.<pid>.<ns>.<rand4>`) + `fsync` + `os.replace` + BaseException-safe cleanup (see §Manifest Schema → Write safety) — preventing partial or unflushed manifests. (NOT a fixed `manifest.json.tmp` + `rename`; that was the pre-#PY-371 pattern, which lacked the fsync barrier.)
 11. **Skip-by-size for existing files**: Files already present with matching byte size are skipped without re-downloading. The `verify` subcommand provides explicit SHA-256 hash verification for previously downloaded files.

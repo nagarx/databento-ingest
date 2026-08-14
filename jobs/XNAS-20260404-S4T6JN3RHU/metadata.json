@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "job_id": "XNAS-20260404-S4T6JN3RHU",
+    "query": {
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "symbols": [
+            "CRSP",
+            "DKNG",
+            "FANG",
+            "HOOD",
+            "IBKR",
+            "ISRG",
+            "MRNA",
+            "PEP",
+            "SNAP",
+            "ZM"
+        ],
+        "stype_in": "raw_symbol",
+        "stype_out": "instrument_id",
+        "start": 1751328000000000000,
+        "end": 1768003200000000000,
+        "limit": null,
+        "encoding": "dbn",
+        "compression": "zstd"
+    },
+    "customizations": {
+        "pretty_px": false,
+        "pretty_ts": false,
+        "map_symbols": false,
+        "split_symbols": true,
+        "split_duration": "day",
+        "split_size": null,
+        "packaging": null,
+        "delivery": "download"
+    }
+}

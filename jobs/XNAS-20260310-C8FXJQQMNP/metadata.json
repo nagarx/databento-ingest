@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "job_id": "XNAS-20260310-C8FXJQQMNP",
+    "query": {
+        "dataset": "XNAS.BASIC",
+        "schema": "cmbp-1",
+        "symbols": [
+            "NVDA"
+        ],
+        "stype_in": "raw_symbol",
+        "stype_out": "instrument_id",
+        "start": 1738540800000000000,
+        "end": 1767916800000000000,
+        "limit": null,
+        "encoding": "dbn",
+        "compression": "zstd"
+    },
+    "customizations": {
+        "pretty_px": false,
+        "pretty_ts": false,
+        "map_symbols": false,
+        "split_symbols": false,
+        "split_duration": "day",
+        "split_size": null,
+        "packaging": null,
+        "delivery": "download"
+    }
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "date": "2025-11-13",
+        "condition": "available",
+        "last_modified_date": "2025-11-15"
+    },
+    {
+        "date": "2025-11-14",
+        "condition": "available",
+        "last_modified_date": "2025-11-15"
+    },
+    {
+        "date": "2025-11-17",
+        "condition": "available",
+        "last_modified_date": "2025-11-18"
+    },
+    {
+        "date": "2025-11-18",
+        "condition": "available",
+        "last_modified_date": "2025-11-20"
+    },
+    {
+        "date": "2025-11-19",
+        "condition": "available",
+        "last_modified_date": "2025-11-21"
+    },
+    {
+        "date": "2025-11-20",
+        "condition": "available",
+        "last_modified_date": "2025-11-22"
+    },
+    {
+        "date": "2025-11-21",
+        "condition": "available",
+        "last_modified_date": "2025-11-23"
+    },
+    {
+        "date": "2025-11-24",
+        "condition": "available",
+        "last_modified_date": "2025-11-25"
+    }
+]

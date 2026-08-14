@@ -1,0 +1,194 @@
+{
+    "job_id": "OPRA-20260619-QR84JH7MYA",
+    "files": [
+        {
+            "filename": "condition.json",
+            "size": 2282,
+            "hash": "sha256:7e78d998482d859d9a494950dc7d751d560965cebaede7be796112227be9d14e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/condition.json",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/condition.json"
+            }
+        },
+        {
+            "filename": "metadata.json",
+            "size": 741,
+            "hash": "sha256:ebf3353446207ca097d289e15325ec3ce045ff31bc87a9f9634740bd4bc4d9d9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/metadata.json",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/metadata.json"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251029.definition.dbn.zst",
+            "size": 1357457,
+            "hash": "sha256:d504f352e6432e84d41be2b6842d72ed964fb2786f5ec4e1b0f7d98c9f2b49fa",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251029.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251029.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251030.definition.dbn.zst",
+            "size": 1364827,
+            "hash": "sha256:2666ea9ab59e1778366d4137953e03bfc9163b959cf1591dd5a17ab4ded27d72",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251030.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251030.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251031.definition.dbn.zst",
+            "size": 1366981,
+            "hash": "sha256:b0b110cdf1a93babde2a6b1659a5fb3bd46c691fb6b305534f98dba2625f7de6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251031.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251031.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251103.definition.dbn.zst",
+            "size": 1332682,
+            "hash": "sha256:0ac85a92afa283257a9807b80cd56e9130b1508d93f60f6fcae44e67f1549b8f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251103.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251103.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251104.definition.dbn.zst",
+            "size": 1350379,
+            "hash": "sha256:83e4769c899a7e079c46cb8f1e6065813406ce11fd0c508643d5c5a871326f52",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251104.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251104.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251105.definition.dbn.zst",
+            "size": 1347576,
+            "hash": "sha256:f021e19846bfb89aa590ce54525e6f1e0d1ad6bf9ca4fd496112589fbc488c10",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251105.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251105.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251106.definition.dbn.zst",
+            "size": 1341228,
+            "hash": "sha256:bae625ba98c4646b09c76d045c4474a6a37cf14c156f9a67fa7e5d040ebc43ac",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251106.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251106.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251107.definition.dbn.zst",
+            "size": 1382347,
+            "hash": "sha256:e46838d885815da1d3c12fa2f1ca6c3ed8bd632e063a25cd0e9373267d9d25d7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251107.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251107.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251110.definition.dbn.zst",
+            "size": 1369404,
+            "hash": "sha256:ceebbbe5bfba584e68e489587fef2e30034ee805fa4c0a4eee9b928bbd5f1856",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251110.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251110.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251111.definition.dbn.zst",
+            "size": 1366961,
+            "hash": "sha256:0cd18777d19f83636988b144db6ed6bdab911ff03faa26663651b24426b50f19",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251111.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251111.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251112.definition.dbn.zst",
+            "size": 1374446,
+            "hash": "sha256:3503429f5c18503e7df9d437ac5020efcc0bb8155d7da9f5351b2e3d8deaacbe",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251112.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251112.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251113.definition.dbn.zst",
+            "size": 1365421,
+            "hash": "sha256:f1da18ad1584c9516271832a61329b74695ccd741d16716b16cd8a27b12e97cf",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251113.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251113.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251114.definition.dbn.zst",
+            "size": 1371348,
+            "hash": "sha256:212ab1181dd5c98b8adad71116139e2733ecfe90ba1c3087e83c7458dc98f8c1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251114.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251114.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251117.definition.dbn.zst",
+            "size": 1356511,
+            "hash": "sha256:24ccfb57f3b2d19b12d09a27dbcfc13672f812a2f325cc87b64082e1f671bc30",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251117.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251117.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251118.definition.dbn.zst",
+            "size": 1371807,
+            "hash": "sha256:4ebeba133b1c4a2b4adbd5fdddbd82defd09e8a650238664b2d30b524a53f2c6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251118.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251118.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251119.definition.dbn.zst",
+            "size": 1387685,
+            "hash": "sha256:733acf5b8e24b4130483fa2e3f42b1e494e3db298f7f03e2f8c8b2c92aab4027",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251119.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251119.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251120.definition.dbn.zst",
+            "size": 1406131,
+            "hash": "sha256:56c138db56504fa03bd2c99c4262b689aa6bb6b8beced47e1f87b26ee42888c6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251120.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251120.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251121.definition.dbn.zst",
+            "size": 1452434,
+            "hash": "sha256:159e2a2a3d00fbfe848a6a00fcded2cf11e999eb15c9d28790b254bfab4be094",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251121.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251121.definition.dbn.zst"
+            }
+        },
+        {
+            "filename": "opra-pillar-20251124.definition.dbn.zst",
+            "size": 1421094,
+            "hash": "sha256:0f919e4e17967889e80195f3ea0be1f82f72ef8c1d5872bb35b4dd9989695240",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251124.definition.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/RCKQA83F/OPRA-20260619-QR84JH7MYA/opra-pillar-20251124.definition.dbn.zst"
+            }
+        }
+    ]
+}

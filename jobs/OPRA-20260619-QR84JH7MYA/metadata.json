@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "job_id": "OPRA-20260619-QR84JH7MYA",
+    "query": {
+        "dataset": "OPRA.PILLAR",
+        "schema": "definition",
+        "symbols": [
+            "SPX.OPT",
+            "SPXW.OPT",
+            "SPY.OPT"
+        ],
+        "stype_in": "parent",
+        "stype_out": "instrument_id",
+        "start": 1761696000000000000,
+        "end": 1764028800000000000,
+        "limit": null,
+        "encoding": "dbn",
+        "compression": "zstd"
+    },
+    "customizations": {
+        "pretty_px": false,
+        "pretty_ts": false,
+        "map_symbols": false,
+        "split_symbols": false,
+        "split_duration": "day",
+        "split_size": null,
+        "packaging": null,
+        "delivery": "download"
+    }
+}

@@ -1,0 +1,2120 @@
+{
+    "job_id": "ARCX-20260310-SL7HXGYF75",
+    "files": [
+        {
+            "filename": "condition.json",
+            "size": 29042,
+            "hash": "sha256:406a01d77c540c029e1434e1ef6d5b039bc8d7945bbde0851afae108b8e3ca06",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/condition.json",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/condition.json"
+            }
+        },
+        {
+            "filename": "metadata.json",
+            "size": 688,
+            "hash": "sha256:fdea5384e5850310cabf32ca6a908232a9e6a6e552b88cf96a42d2df92ee68d6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/metadata.json",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/metadata.json"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250204.mbo.dbn.zst",
+            "size": 77702464,
+            "hash": "sha256:feff3d3373afcd9ef5c1b50ccb340ff105df30708a27d9347a5f5f0ace8d57a6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250204.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250204.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250203.mbo.dbn.zst",
+            "size": 127354685,
+            "hash": "sha256:e8d737777be89fa4892b1a306b6104b5aabb120623549a02cdbe6afc1d7fbfa2",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250203.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250203.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250205.mbo.dbn.zst",
+            "size": 76126084,
+            "hash": "sha256:bb77635ad3d30faf0a13739065ccedf8b7dd484d763573400a5a4b1b3dcf5f56",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250205.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250205.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250206.mbo.dbn.zst",
+            "size": 75349864,
+            "hash": "sha256:0e0b3dca5e86a5f1ee1eb4ec0a2464676820c39e8e81a21321b8bf94f6df18e0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250206.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250206.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250207.mbo.dbn.zst",
+            "size": 108146275,
+            "hash": "sha256:69463e1318edce6c183738370575357e689a4686bba06ad4590731e824cd3b5b",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250207.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250207.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250210.mbo.dbn.zst",
+            "size": 72455973,
+            "hash": "sha256:d40dda46e490a5350b8e52088cadf9e5fd23a8f69582e45dc2a979adf998a27e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250210.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250210.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250211.mbo.dbn.zst",
+            "size": 58099158,
+            "hash": "sha256:fbaaa5b034d277a78e2edca2c1d16899016e885e2362608db72396dd17a4eb4c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250211.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250211.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250212.mbo.dbn.zst",
+            "size": 87184627,
+            "hash": "sha256:d5543dbaa33a4aa2501251c61344fdab723fbd144d5a3bec6bebe4dabf738c49",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250212.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250212.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250213.mbo.dbn.zst",
+            "size": 87228945,
+            "hash": "sha256:36ca97892bc697180f2f5d7822fef16183f69476c2c9bb7e5eeef2eddb29652a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250213.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250213.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250214.mbo.dbn.zst",
+            "size": 55849211,
+            "hash": "sha256:c68bf3f12cf6a53e8cbc5d690983bd6704a24edab19f44c1fbb9e9d40945b80c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250214.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250214.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250218.mbo.dbn.zst",
+            "size": 84360977,
+            "hash": "sha256:f33971a02e44a85b45729e9b4ddb70cfae04c007d188780833c8961648ce1887",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250218.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250218.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250219.mbo.dbn.zst",
+            "size": 70034044,
+            "hash": "sha256:e2bee011badae1dfea4254a86a7d5d4ed3adfd1cd16e72adfe760e8ff0eaad8c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250219.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250219.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250220.mbo.dbn.zst",
+            "size": 77131259,
+            "hash": "sha256:968f2b0e8927fdd40c761e3539bcbf9182ccde019c0b6f4983ca3f4497d54b4a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250220.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250220.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250221.mbo.dbn.zst",
+            "size": 75610995,
+            "hash": "sha256:47edd5f24a5850b64288cebbf0b0274565e9add302713fb73d0124f46b16940c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250221.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250221.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250224.mbo.dbn.zst",
+            "size": 113655076,
+            "hash": "sha256:ebc062dcb8ae76d8fc86c9b7d0ac78c05881fb5744606eaffac5c6fce22a1415",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250224.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250224.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250225.mbo.dbn.zst",
+            "size": 116579263,
+            "hash": "sha256:7ff2e6a727f0e021c256ae9060f5ce0b9e099d2ec917c30f4b2d1da6830700bb",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250225.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250225.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250226.mbo.dbn.zst",
+            "size": 123094704,
+            "hash": "sha256:8a63f02c74ee31918cbed1f0db1118a2a3198c665c40dd3c5a0b4a8f24152078",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250226.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250226.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250227.mbo.dbn.zst",
+            "size": 179053937,
+            "hash": "sha256:c3e3ccca33c11d71ec1c037baafbc6f61d5b2925a250554889865d3fa5cfffa7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250227.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250227.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250228.mbo.dbn.zst",
+            "size": 141890392,
+            "hash": "sha256:1e9246daa4179f22bbb869f8f925c72894554229792aa129b5b7d0218f2b7587",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250228.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250228.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250303.mbo.dbn.zst",
+            "size": 134983615,
+            "hash": "sha256:8dd118a8e4c5f019e6797bfedb0e05f95d131039e9adf79b4ce9ce41f90862f1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250303.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250303.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250304.mbo.dbn.zst",
+            "size": 153751411,
+            "hash": "sha256:cb8a520ad156dd4ae9dedd513c543d739431f2ca28d5ca635c45e55a535bbc4d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250304.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250304.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250305.mbo.dbn.zst",
+            "size": 174812000,
+            "hash": "sha256:878e401b41b5b64d9ed368baae4661540e5392610c38a8560cb6e68f5fbfbda6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250305.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250305.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250306.mbo.dbn.zst",
+            "size": 175917702,
+            "hash": "sha256:9f004fbe9a72914878bad5c22f5ab7074a028b7dced106101e38c525aa671c89",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250306.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250306.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250307.mbo.dbn.zst",
+            "size": 203574815,
+            "hash": "sha256:25916c3e97a4ff32d850aa8f8f3b78f5af2aeec6d5362f42ecb9018f4c76b327",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250307.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250307.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250310.mbo.dbn.zst",
+            "size": 194123081,
+            "hash": "sha256:5a3cd8d85884a5164cc7b3d5b5a6f52a86f49a9af28776a441f56307a37a8395",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250310.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250310.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250311.mbo.dbn.zst",
+            "size": 247787158,
+            "hash": "sha256:b1b946c376fb1f2af07b3e5df040b13c6ddee5d5e1988ff6ae0257039bc9ec5a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250311.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250311.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250312.mbo.dbn.zst",
+            "size": 182928001,
+            "hash": "sha256:a6e147a031cb873f83158c6d76285fd5f6094449f23706cebd52423f17c55714",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250312.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250312.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250313.mbo.dbn.zst",
+            "size": 148539581,
+            "hash": "sha256:5559d879be289df7e639863a3422602d1c83967d772a711c5c94c912dfcdd2bd",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250313.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250313.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250314.mbo.dbn.zst",
+            "size": 121991841,
+            "hash": "sha256:3525ce1dbefd64f57039d0df19ca29d17b866292222ac27f8803b930b76414e9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250314.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250314.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250317.mbo.dbn.zst",
+            "size": 130691796,
+            "hash": "sha256:5ea3d4897bf7461e835cdebc1cc29764590ece14e2f2a8fb00e999c02353559b",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250317.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250317.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250318.mbo.dbn.zst",
+            "size": 133294982,
+            "hash": "sha256:98a9ce908c713cafb9c873277dbbd5bc96d626bd4bd6676b92d207bf63ced18a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250318.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250318.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250319.mbo.dbn.zst",
+            "size": 119345895,
+            "hash": "sha256:c52011d1e2620ebf1db018d9b3b412da59b4ff81629fc3add167728dbc5a14bd",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250319.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250319.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250320.mbo.dbn.zst",
+            "size": 86860558,
+            "hash": "sha256:a7129b99cf6e7d8df956cf46181eda7a175f4793d0c88521cdf889e836d88f75",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250320.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250320.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250321.mbo.dbn.zst",
+            "size": 90982933,
+            "hash": "sha256:b3e966cf1524c378b546a4c41c956a4816add82cb694cdcb43d2f9c08efa0a6e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250321.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250321.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250324.mbo.dbn.zst",
+            "size": 61252804,
+            "hash": "sha256:62a6e9ab00609ff7a1e140f464cd3c6eafbeb4b2e6839ba6dcca79907cee80b1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250324.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250324.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250325.mbo.dbn.zst",
+            "size": 59876587,
+            "hash": "sha256:825a75f5988c5c13156651c5bc26ac37b275f7b2cc4574210077cea13ab19979",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250325.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250325.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250326.mbo.dbn.zst",
+            "size": 102160065,
+            "hash": "sha256:836e6a580213595df8b0e6464f46c84bb886d03a6d3131ef1d3174fd5f22623e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250326.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250326.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250327.mbo.dbn.zst",
+            "size": 100550265,
+            "hash": "sha256:bcbb8c5a87db1d0bd5b1a647d974e41362a9c5a6cbd2729a3b0186e457fc5b2c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250327.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250327.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250328.mbo.dbn.zst",
+            "size": 107791163,
+            "hash": "sha256:01a39d9282a399af964a9327c61cc21634e0e634deced627e80455d62a06946f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250328.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250328.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250401.mbo.dbn.zst",
+            "size": 97180567,
+            "hash": "sha256:cf81ae8d098a7d992f48c405dd657db2c62304567e46fcb7f004dd65baea1937",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250401.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250401.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250331.mbo.dbn.zst",
+            "size": 119721086,
+            "hash": "sha256:9dfc6f9ba2d1993c8ee70270931dff93d54356c35ea6cf46566bc0110131a8a4",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250331.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250331.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250402.mbo.dbn.zst",
+            "size": 114537784,
+            "hash": "sha256:3a148415a8465ad822cca2c0e84a6535a8d7616deab8526726769c873e4d768a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250402.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250402.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250403.mbo.dbn.zst",
+            "size": 151358758,
+            "hash": "sha256:21512d8dd28dedfd9d072e41bc85e1086213c260342b75d95ad6d5a2d16881f2",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250403.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250403.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250404.mbo.dbn.zst",
+            "size": 202662485,
+            "hash": "sha256:5c45190bcd95ef86db79748592c3fd14ca72a0eb9c28bc21211afdd9b6f69114",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250404.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250404.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250407.mbo.dbn.zst",
+            "size": 291577517,
+            "hash": "sha256:a82e8a139943433a72348506b7b77bd57c94aabd8a748440e0bbf953243ca011",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250407.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250407.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250408.mbo.dbn.zst",
+            "size": 196988340,
+            "hash": "sha256:253727255ffcf01406b23e65992e94d0bec26dfb0ead1f8a523d702eb816dbc0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250408.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250408.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250409.mbo.dbn.zst",
+            "size": 310723236,
+            "hash": "sha256:d457ade175083589f6f0aae5d3aad691be755dd5ac94d802f5af57ec368d2e62",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250409.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250409.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250410.mbo.dbn.zst",
+            "size": 261261073,
+            "hash": "sha256:861a6fa6bd386e993c7e1be7dce902c477e54bd868ed1e1ce70feccbbbe5178f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250410.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250410.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250414.mbo.dbn.zst",
+            "size": 113706463,
+            "hash": "sha256:a88c88ddca0f88f286d72d403969caf4da9a176dc9978187268b7d4310d99f4a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250414.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250414.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250411.mbo.dbn.zst",
+            "size": 160684863,
+            "hash": "sha256:5dd2a3d7863048d8f884680b33638968516f394898069e43874a54e5b4262478",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250411.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250411.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250415.mbo.dbn.zst",
+            "size": 89965372,
+            "hash": "sha256:e57d89191adee4fe7135197ffd687d80851e647e2516f3c8af43f919c716dc77",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250415.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250415.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250416.mbo.dbn.zst",
+            "size": 106717525,
+            "hash": "sha256:abcba8ffdfc86132bb98d30d9ef929b1c3b16432a8fe425477b9ab2609eb1025",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250416.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250416.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250417.mbo.dbn.zst",
+            "size": 102304302,
+            "hash": "sha256:673c7181d0030101bca2294cd2ff6c8b4d33543296e899c8ef36fa63e6f2a066",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250417.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250417.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250421.mbo.dbn.zst",
+            "size": 93786220,
+            "hash": "sha256:8f92c2653494543b8d756e3fd189782e65bd0bae8f97c343c70add624e87b428",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250421.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250421.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250422.mbo.dbn.zst",
+            "size": 86669968,
+            "hash": "sha256:8946f881ec8bc7c85da43259fc2bafb74214721a73ab2dc029ad5eb643792f4a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250422.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250422.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250423.mbo.dbn.zst",
+            "size": 106159426,
+            "hash": "sha256:07e55be75d1024a2f01219b239d30171ab35d2fd26dbd37cc4b2fa52e58114f0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250423.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250423.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250424.mbo.dbn.zst",
+            "size": 72182740,
+            "hash": "sha256:e92033146d5bc22f352bbb9c1e1939eafd8d96a9274cd96d039e8149898f62f0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250424.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250424.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250425.mbo.dbn.zst",
+            "size": 83969571,
+            "hash": "sha256:785a74290b903c315a2809d6e50feafb3b2a91295520d5d512c0d062a6268f35",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250425.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250425.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250428.mbo.dbn.zst",
+            "size": 63545774,
+            "hash": "sha256:cf2a7f1f4a3c236ad24845959220d0df359c07a661c8dd17f23d4a358e57bf9a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250428.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250428.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250429.mbo.dbn.zst",
+            "size": 75359299,
+            "hash": "sha256:2094318021512bd0ce19c8a503f141645b4d3e0d6af11baf1d5411ab4002a9f4",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250429.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250429.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250430.mbo.dbn.zst",
+            "size": 142394552,
+            "hash": "sha256:8813dc54b24237bd4683af9b9d9277b5a648af6f0aa0a334c47ff6886c00be71",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250430.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250430.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250501.mbo.dbn.zst",
+            "size": 98708013,
+            "hash": "sha256:6489bc816d3edf3e8e707f768d00809626421bc0f4dff9a2e714dd667ee7a567",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250501.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250501.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250505.mbo.dbn.zst",
+            "size": 79047095,
+            "hash": "sha256:93077b13a68ff8c8f0e3e60fe16829fef6126b4950921ca8373f43b7cd297b5e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250505.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250505.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250502.mbo.dbn.zst",
+            "size": 105288283,
+            "hash": "sha256:63aad7d4a913651885d856c2be6d0f84400f468a4f7d1b0fb1e65f030797c34f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250502.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250502.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250506.mbo.dbn.zst",
+            "size": 94734627,
+            "hash": "sha256:cc59d1c0cc4eb89c3354c62e77fbd8b7597c09896d510058082622d2293476be",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250506.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250506.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250507.mbo.dbn.zst",
+            "size": 132358083,
+            "hash": "sha256:9db7417998406d5d47d3a61ed9997da424585d6b014a904d1614e48f8b1f3e87",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250507.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250507.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250509.mbo.dbn.zst",
+            "size": 89837352,
+            "hash": "sha256:94ffcd1b41064776d5994a005927bb6f3e94a83ebc8d18bc7014d58424aa62d4",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250509.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250509.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250508.mbo.dbn.zst",
+            "size": 138459244,
+            "hash": "sha256:9f89dff19909ffe189f3d9a85d6168d1e5e0a171294be82dd76a3546f5215f7f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250508.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250508.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250513.mbo.dbn.zst",
+            "size": 83973996,
+            "hash": "sha256:b5a2dfe22aa3786e7942b306cfcdcf8e415345af6c3809fbf52f367c106f3123",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250513.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250513.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250512.mbo.dbn.zst",
+            "size": 119639170,
+            "hash": "sha256:263808674591d4f360018733f776d370ea5e90141753b33b3b1a5a2b2864a832",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250512.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250512.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250515.mbo.dbn.zst",
+            "size": 70740162,
+            "hash": "sha256:dfdbf5e2d6f5bb9b8eee1218e74b32ef553a61d1332a18999419c621e44eeb58",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250515.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250515.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250514.mbo.dbn.zst",
+            "size": 85741572,
+            "hash": "sha256:a83b1ed0f59ba8fc51b1a891e7c0d16cb3587daafbcecb9f831f4a7f961f0357",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250514.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250514.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250516.mbo.dbn.zst",
+            "size": 67836551,
+            "hash": "sha256:4dcb66fe5d2b5d76bf5e06d3a804efb5c9e0855b45bf8c73a16350cc8af3f995",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250516.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250516.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250519.mbo.dbn.zst",
+            "size": 110324844,
+            "hash": "sha256:df025d20c0a63226e9e1dfbc8f768d458ca66a673144548fed0a94718e283c01",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250519.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250519.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250520.mbo.dbn.zst",
+            "size": 110471973,
+            "hash": "sha256:53971440790d2897f58a382dcbed5f3bba44a76ce0038b60609299fe91d1bc93",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250520.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250520.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250521.mbo.dbn.zst",
+            "size": 158411043,
+            "hash": "sha256:d3fd05565c257a05cc45690fe4939fab5391bd32051d34f8c83acfc9f041be7c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250521.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250521.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250522.mbo.dbn.zst",
+            "size": 138967042,
+            "hash": "sha256:199c70570b3ea0618031ed30242c95e25eaaf0103cd922944a7e70edaeaf1cfe",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250522.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250522.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250527.mbo.dbn.zst",
+            "size": 99442527,
+            "hash": "sha256:86030d781fdefd076867de0f2e0e9b253a12b53117e62c35c4d22c60d991eb33",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250527.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250527.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250523.mbo.dbn.zst",
+            "size": 143336197,
+            "hash": "sha256:c6dca12db1915e8a5d59ec1032dda60ed91da0c0cb62c5f4c314478c61452ff2",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250523.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250523.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250528.mbo.dbn.zst",
+            "size": 125318997,
+            "hash": "sha256:7effd056976f7d54b64df3acba5b09269d119a373b4e70a60329463691caa744",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250528.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250528.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250529.mbo.dbn.zst",
+            "size": 181810203,
+            "hash": "sha256:32d281da096e31943202275c4a9ba575c91b4cd2fa79be39bd722bdba16608ce",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250529.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250529.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250530.mbo.dbn.zst",
+            "size": 166182560,
+            "hash": "sha256:0b39c29118b1ebc26ee933539cdfc28d36924fa3a9adfd9669402f13cc0572f1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250530.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250530.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250602.mbo.dbn.zst",
+            "size": 127071655,
+            "hash": "sha256:ef5f9f7df1f17d31a1b9894f2f82c5ee1ba5e636150ded2ecf1f55efcfcdb711",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250602.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250602.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250603.mbo.dbn.zst",
+            "size": 110593748,
+            "hash": "sha256:221dc6b2e19ddaa30f127436979dc1aa502c78f4f28b4aaf41b59c078ff4d77e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250603.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250603.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250604.mbo.dbn.zst",
+            "size": 101235862,
+            "hash": "sha256:fe3b0b76702efe0832b361f9fe9db86c79a28a56cfa80f741e5d7eafe1d315ce",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250604.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250604.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250605.mbo.dbn.zst",
+            "size": 150513522,
+            "hash": "sha256:96ac2e81aaa9bf5ba5caf3e73674de98196d591e730e67c973291373264fc2bb",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250605.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250605.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250606.mbo.dbn.zst",
+            "size": 118515630,
+            "hash": "sha256:1997a67ce80bedc7db0ab68b5cda2ffce908b61acf43f55a3a9254d577c00784",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250606.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250606.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250609.mbo.dbn.zst",
+            "size": 105945451,
+            "hash": "sha256:d740fd912763f05fea9d6c2d9db1fb17e2be61148f3baa8c0107d6811bd0ba22",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250609.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250609.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250610.mbo.dbn.zst",
+            "size": 109984732,
+            "hash": "sha256:24d9eee13a05882fd8d1eaa2a0199c4a770eb4312130b2bf5c773d7ecb08322f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250610.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250610.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250611.mbo.dbn.zst",
+            "size": 82402432,
+            "hash": "sha256:ea2e6bc3b5f22d0a5b5584adddb91fba6c74ddd70ad1ae469895f43d3a258149",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250611.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250611.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250612.mbo.dbn.zst",
+            "size": 66511792,
+            "hash": "sha256:653fc87330a1e022a0ec482bef1f5f5bb44e22e8fd938d6ac6a981ea6d3e1523",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250612.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250612.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250616.mbo.dbn.zst",
+            "size": 72271487,
+            "hash": "sha256:258215e93424fd01fa99f85d867960035646ddd6862b53a26178970d3139df04",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250616.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250616.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250613.mbo.dbn.zst",
+            "size": 97526935,
+            "hash": "sha256:75fcbbcc81e3d4ea0809488b9a1ac4f6922b3c62c6f3cf2856ed9ad7ed0fb1cf",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250613.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250613.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250617.mbo.dbn.zst",
+            "size": 70215377,
+            "hash": "sha256:648f6d6ce22d9d78d54f63b1fd0e4cb84f388e4fc1d1622f6ff546cea3d0fe77",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250617.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250617.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250618.mbo.dbn.zst",
+            "size": 70726700,
+            "hash": "sha256:36d3a64aece7cbe23276c7d5e31d355f52f3a34a64200286266891f38e33252d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250618.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250618.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250620.mbo.dbn.zst",
+            "size": 82825058,
+            "hash": "sha256:3cc8e1e2556742902167210fe26ec946e09640fe74db47428ea0222dd328c7c7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250620.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250620.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250623.mbo.dbn.zst",
+            "size": 80355263,
+            "hash": "sha256:7fa43211aafe7ab22e90bd7b7e9be8960af015eacb9c0f7f210a81647df800d7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250623.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250623.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250624.mbo.dbn.zst",
+            "size": 49266239,
+            "hash": "sha256:ce8321ae594a66cd107c98a451149f005dacc79156d9de56bd1c7e8877a7e52d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250624.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250624.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250626.mbo.dbn.zst",
+            "size": 60763780,
+            "hash": "sha256:605ea6a4ff26b8aa12bc31ebea1dd12bcdda5b93c24c5e0ddd168f6425112857",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250626.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250626.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250625.mbo.dbn.zst",
+            "size": 84344599,
+            "hash": "sha256:2bdc8bffe0255ab9ade37eccd1457c160fc467f0f9c040bc8ee23ac8a3f02300",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250625.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250625.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250630.mbo.dbn.zst",
+            "size": 73972586,
+            "hash": "sha256:9a10f9e0d9c38929d2c77ec8118d1a7d5164c1e45c0f5bf2a8c685fe398ae0c0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250630.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250630.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250627.mbo.dbn.zst",
+            "size": 91214425,
+            "hash": "sha256:ca40ca63e2913c1592189b1ae2f58da0c2e70124cb7c568e7dcc27a0184a688d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250627.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250627.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250702.mbo.dbn.zst",
+            "size": 63927370,
+            "hash": "sha256:fa6c9eba8f52e7f6eb173b0281f8b0467a779db56aba54aba7fd989b95cc2922",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250702.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250702.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250701.mbo.dbn.zst",
+            "size": 86835172,
+            "hash": "sha256:bb91c7b92d91838ec3d5a41ba1c6dea7a5a41e3d5db7fa77f9ed0b1ef1c041dc",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250701.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250701.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250703.mbo.dbn.zst",
+            "size": 43483669,
+            "hash": "sha256:f3f445a8ee9468c2357f5017d4119278c2018a1aecf4f20ce3aac08345af237d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250703.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250703.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250708.mbo.dbn.zst",
+            "size": 67799882,
+            "hash": "sha256:d6a15625c4d774efae2d9d6fdfd7f69bd4836d099235c66b3f1a5158fce5efad",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250708.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250708.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250707.mbo.dbn.zst",
+            "size": 74784501,
+            "hash": "sha256:fda90d702477e4d852bed4040fba55c767544e1be2ac354cf26b1cc4bb9f1bd8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250707.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250707.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250709.mbo.dbn.zst",
+            "size": 63030134,
+            "hash": "sha256:9ad325d81b6da07b2f69175a691abde84a0b535c60ff57e450f650c5bc1b72ea",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250709.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250709.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250710.mbo.dbn.zst",
+            "size": 74005634,
+            "hash": "sha256:45199721190c0566b3accc36a63bde5ead8ee037793cb548f5db7ad88b3bc375",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250710.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250710.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250711.mbo.dbn.zst",
+            "size": 88411106,
+            "hash": "sha256:af5eb770fd158fd60d012ea4cf3f7ecb05228a287c65130ee5825c15d4cc9438",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250711.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250711.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250714.mbo.dbn.zst",
+            "size": 70546094,
+            "hash": "sha256:d066f1bbe40ded7d42683b6817bb71d0adb7d7be16c5e67caf1133c334dbb180",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250714.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250714.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250715.mbo.dbn.zst",
+            "size": 111282632,
+            "hash": "sha256:9d43c72b61c6c43df7d6ddec20195a889b9867c87ed67435b9cc867d2e8df6d3",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250715.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250715.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250716.mbo.dbn.zst",
+            "size": 90965406,
+            "hash": "sha256:c115cc964bc8558100f09533bcd6eec6f70f77fe762150164f1069e3a88a0fdd",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250716.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250716.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250717.mbo.dbn.zst",
+            "size": 71422417,
+            "hash": "sha256:a85ab2e22d5f052ad715c15870767ccc86ffb4202973824931f54d9ef7af75a8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250717.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250717.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250718.mbo.dbn.zst",
+            "size": 54011891,
+            "hash": "sha256:bbaf558a17410d02af6c58c4089b1a18cdff97a61cbad8928f03e0a172adbd23",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250718.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250718.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250721.mbo.dbn.zst",
+            "size": 57985126,
+            "hash": "sha256:9a1d9d0f6f7cc474d10c8f894ce7829a5994446858f145b0c47de29ccd5d552f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250721.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250721.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250723.mbo.dbn.zst",
+            "size": 67416174,
+            "hash": "sha256:f666008f6ca37f3282e98139ed6b9f7d063ef3758ee0620ceda97784e523658d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250723.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250723.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250722.mbo.dbn.zst",
+            "size": 98577699,
+            "hash": "sha256:e378c4465ccbea3893f526b2141fcf6468b48464dde7fc6d85af1fe00d20bf88",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250722.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250722.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250724.mbo.dbn.zst",
+            "size": 63655566,
+            "hash": "sha256:bac5b54f35c3b64bdbb750dad3b77a986287b6861c8f46e035464fb18dbc2aae",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250724.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250724.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250725.mbo.dbn.zst",
+            "size": 43510347,
+            "hash": "sha256:cf4f0bdf28cb48799a3e99d9b3d5bb9e5f45f46ef809edef5697968ac069abc9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250725.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250725.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250728.mbo.dbn.zst",
+            "size": 65555118,
+            "hash": "sha256:9f49ec7f75f3e8b99c7557d3eff921c71223edd462d1580bc99aba3ab615857d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250728.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250728.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250729.mbo.dbn.zst",
+            "size": 77897858,
+            "hash": "sha256:84cf4ca525a076a14855d5dbeb200465b738081384ac4de3495487d42e0fea21",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250729.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250729.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250730.mbo.dbn.zst",
+            "size": 78297388,
+            "hash": "sha256:b9258ec6f513492825978644c99b871ca9204cafe2c133cd405828d40ea1a539",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250730.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250730.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250731.mbo.dbn.zst",
+            "size": 97233005,
+            "hash": "sha256:757532487ad337942aca46d90734b966d679235b0562279e6cf361931ee6d63c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250731.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250731.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250801.mbo.dbn.zst",
+            "size": 138996971,
+            "hash": "sha256:1e3c12a1762b477cf5f10812eee07f1d3e03d7934c5a68ce5b42230f2cdc4dc8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250801.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250801.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250804.mbo.dbn.zst",
+            "size": 62862396,
+            "hash": "sha256:d1fc5d26fe6d770af5cb69f3dacf7e68ac28ad35370a168ef2a899c10c2ad516",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250804.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250804.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250805.mbo.dbn.zst",
+            "size": 98363523,
+            "hash": "sha256:aebc830633d2c69fd0970b72506686d0512d465e9882e6cbd43d74eb224c48ff",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250805.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250805.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250806.mbo.dbn.zst",
+            "size": 79288186,
+            "hash": "sha256:0c9b6059c8c848405828618567dd75eaac6ac9f4de73ecd6837a65edeeabd5a9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250806.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250806.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250808.mbo.dbn.zst",
+            "size": 55868168,
+            "hash": "sha256:c52b2c1d8841086e4d892f15634e95c8245bda6b1f4437c7d13ebbaabc2bbf02",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250808.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250808.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250807.mbo.dbn.zst",
+            "size": 73562611,
+            "hash": "sha256:1eb2674f5d7299df448a5f758357f1748df32a6d2d2937f937bf76f144a4a3d7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250807.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250807.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250811.mbo.dbn.zst",
+            "size": 61228183,
+            "hash": "sha256:da2a28a41c85e2c7c7e8f7439073e9c62d8b42e5a3371d722f0fac50927638d8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250811.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250811.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250812.mbo.dbn.zst",
+            "size": 57921465,
+            "hash": "sha256:39b1393eb55f4062728a8ee421ce516e109dc315a27cce94c00985763bbe0ae0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250812.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250812.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250813.mbo.dbn.zst",
+            "size": 73699984,
+            "hash": "sha256:ae12103c517e368b110407f7d0122aa264f8bfd10d5f17c71661791d00657198",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250813.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250813.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250814.mbo.dbn.zst",
+            "size": 64290042,
+            "hash": "sha256:a79e6119f8f503dd94020e6480ba3dca3b95305fc1921569e305fb79df2e3984",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250814.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250814.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250818.mbo.dbn.zst",
+            "size": 52431555,
+            "hash": "sha256:8496d1428bc24ba350fa795c8223fcad78601ca475e72b780502049df0162ff7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250818.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250818.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250815.mbo.dbn.zst",
+            "size": 76012136,
+            "hash": "sha256:929b1bd15972a01bfeb1f5025deea18f31ae3c5e33a5e1feeaedee954a3d59d4",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250815.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250815.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250819.mbo.dbn.zst",
+            "size": 94412738,
+            "hash": "sha256:f89b3dc87c85f7146561467e00ca97fface25b827775ca64b2fcb4bebc046591",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250819.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250819.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250820.mbo.dbn.zst",
+            "size": 118481192,
+            "hash": "sha256:e46bdbb7f3442ff67e0bfe940d1472cdaadb9f031370045948812af1f817c38a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250820.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250820.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250822.mbo.dbn.zst",
+            "size": 66623035,
+            "hash": "sha256:ff7de997b929b59f1facb0a8f76f39751c7bfcd63183fa9d1f6b8b94b6905fde",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250822.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250822.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250821.mbo.dbn.zst",
+            "size": 77568589,
+            "hash": "sha256:ee8b5fffdfb8b50d514cca2ec7d1f78d1fa2d40825b621fc19a43cf90865127a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250821.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250821.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250825.mbo.dbn.zst",
+            "size": 55390967,
+            "hash": "sha256:2fe5efdbc3461b83ed06a662be2663c4ab3b9109992a3606495857b7c51e97ec",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250825.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250825.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250826.mbo.dbn.zst",
+            "size": 45935386,
+            "hash": "sha256:3392d28cb63e42749540b1e48fd8c5daf8e175093858db0c8d3b5dde07855c16",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250826.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250826.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250827.mbo.dbn.zst",
+            "size": 65970554,
+            "hash": "sha256:8d707061d497b0a524f163d06eb252d6fcfd9ccef9edf4d7435a55ec4d794c1a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250827.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250827.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250828.mbo.dbn.zst",
+            "size": 96836237,
+            "hash": "sha256:8ef27c0dc88b4ee1ef0d8d0d090520e70a704f202ed1d66e78c7a0c8169490d2",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250828.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250828.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250829.mbo.dbn.zst",
+            "size": 83974538,
+            "hash": "sha256:2f43cb670d27f1369d0b731c5e84a6f8ad5a4d319b7d1651e6e612d384c3fff1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250829.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250829.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250902.mbo.dbn.zst",
+            "size": 94581951,
+            "hash": "sha256:4ae473917e36098f0caeea53c97819c3ba61f0fdfd79e265e7afa7e582dac968",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250902.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250902.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250903.mbo.dbn.zst",
+            "size": 69086972,
+            "hash": "sha256:c3c770c495e9f66bfd595a493f63797128c1feacad1d8db5d0364de1b66fef77",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250903.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250903.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250904.mbo.dbn.zst",
+            "size": 56459509,
+            "hash": "sha256:ca64c41731b39c609a7b558b4e8ca0627f4b1c42419aa0194a85a20927dfd35a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250904.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250904.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250905.mbo.dbn.zst",
+            "size": 119039994,
+            "hash": "sha256:b27a57d4a25d4f61592513b17e2c2ba78aa525227e68bd62b4bf70b2ad6cc7e1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250905.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250905.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250908.mbo.dbn.zst",
+            "size": 64934656,
+            "hash": "sha256:7ec55fb3835e0fcda90e03739a9d10d2dac84a59dfb32b2973e87f1297904a05",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250908.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250908.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250909.mbo.dbn.zst",
+            "size": 57726688,
+            "hash": "sha256:a193385ef6998293457e34c64c6ef147c6150248f9fcd437742102a08e35a29a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250909.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250909.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250910.mbo.dbn.zst",
+            "size": 78306291,
+            "hash": "sha256:2a8b29ceec6f7c4295a512ec61f0cdacb7fe4827720fcee33fbdc20c480988d4",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250910.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250910.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250912.mbo.dbn.zst",
+            "size": 46620191,
+            "hash": "sha256:5827a8a3afa88239b5ef77e630791fa6d69d694d31c923e8e9865d77a5efd9c8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250912.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250912.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250911.mbo.dbn.zst",
+            "size": 57476780,
+            "hash": "sha256:6de0473a10a539cb8c54efed6b0ece1bbf193999defc77c8e4c403c0673a4d09",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250911.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250911.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250915.mbo.dbn.zst",
+            "size": 63824851,
+            "hash": "sha256:3451c892cdd58c87f4d0373a2b91935f5d8f0ea9ec13c3fb74e8fc71d974fb12",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250915.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250915.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250916.mbo.dbn.zst",
+            "size": 51733326,
+            "hash": "sha256:101cdc8eaf22d2e91c20f49e5bcba6f22f552c62d2766619939fd354172e47e9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250916.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250916.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250918.mbo.dbn.zst",
+            "size": 81378672,
+            "hash": "sha256:15fabfc62fbd4114c3e992a749a49432ddc2bbddbdef9eff5a192aadbda579e0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250918.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250918.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250917.mbo.dbn.zst",
+            "size": 107770515,
+            "hash": "sha256:a184d10cc645aa0367669dd0dc1c44cbf2554b5d11c28e4acf43d36ce775ad4b",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250917.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250917.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250919.mbo.dbn.zst",
+            "size": 65591932,
+            "hash": "sha256:b33022f7dfd35d48c55caa065eeded539c466bd8049ad4d748f13b9b04fbac75",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250919.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250919.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250922.mbo.dbn.zst",
+            "size": 101904323,
+            "hash": "sha256:93b56994be605b2234619d70eaa0f5c42395edfa3d698c2d626ebc531bb30a4d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250922.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250922.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250923.mbo.dbn.zst",
+            "size": 86641420,
+            "hash": "sha256:acae5e1334ac5095608a5387c246d5254972584d2a4e16fb39d5545acd1ae172",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250923.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250923.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250924.mbo.dbn.zst",
+            "size": 75036168,
+            "hash": "sha256:1859909f53375b2ee69b5e6f5ec30540ddbc62dcad626e73184619d4a8763d2f",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250924.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250924.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250925.mbo.dbn.zst",
+            "size": 104829072,
+            "hash": "sha256:fcf001a3400a08a77c5a41c826016d60164e6b7ab10ee7e4e0157c488813e839",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250925.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250925.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250926.mbo.dbn.zst",
+            "size": 75272630,
+            "hash": "sha256:a603949ed62572020b73fe17e45052eb23f54442c2e0ceab2c832833df391667",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250926.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250926.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250929.mbo.dbn.zst",
+            "size": 80244986,
+            "hash": "sha256:6a3362a435d8b55dab792afe761b517dc6027784b0eb2491aed93d250422c43a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250929.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250929.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20250930.mbo.dbn.zst",
+            "size": 95117443,
+            "hash": "sha256:db6eca3dfbd7b076cad3bd306eb86607ffbcf147be15a24fda17f6cc683d38be",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250930.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20250930.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251001.mbo.dbn.zst",
+            "size": 64516480,
+            "hash": "sha256:89680ea1c145d2195d9a7fb6480fa57fa61f1204d3b4921e8119347dfdd45616",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251001.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251001.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251003.mbo.dbn.zst",
+            "size": 92500844,
+            "hash": "sha256:6a480376becb031f8c0940ba524dce2bdddd4b1dcf481bc0e618e7b9914ff545",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251003.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251003.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251002.mbo.dbn.zst",
+            "size": 86332420,
+            "hash": "sha256:1e1617ecec1a6eaaf35ad97cf84cd9baf13b5af286d1e9e51c5db9807a3cf784",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251002.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251002.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251006.mbo.dbn.zst",
+            "size": 75486451,
+            "hash": "sha256:e6bd24329bab47a5fee3cbcc9742aa9f8e08a18553302f9377a1560436b5cab0",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251006.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251006.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251007.mbo.dbn.zst",
+            "size": 113837006,
+            "hash": "sha256:889c232011a93b848e88ce94d4d832c6c70169f748b4647223d481959622b71d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251007.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251007.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251008.mbo.dbn.zst",
+            "size": 69366203,
+            "hash": "sha256:06ae650095cc2e403355b6b93d4308a0461140fa87c7fd8a6feb31cc363a024d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251008.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251008.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251009.mbo.dbn.zst",
+            "size": 107050507,
+            "hash": "sha256:1dce876d471277636f4ca35422542befb445530863c8a6c74af40a27130c8bf8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251009.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251009.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251010.mbo.dbn.zst",
+            "size": 161921391,
+            "hash": "sha256:19c2e86375239615bb76d16c48072ea3667fe1cd23fe45fdbf04d15947ef3ef4",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251010.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251010.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251013.mbo.dbn.zst",
+            "size": 100305742,
+            "hash": "sha256:5e969d44e3f786808cdbc9e4517d4da961319bf5d98a5d522961c29ed736681e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251013.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251013.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251014.mbo.dbn.zst",
+            "size": 119031332,
+            "hash": "sha256:ce36b677ff7f401581a442c910c3a34b29e8760d1366f3b44f891c5c9b9ccb62",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251014.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251014.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251015.mbo.dbn.zst",
+            "size": 119411428,
+            "hash": "sha256:e47d7c7476fa3e1f9e5963338e63459894a4bbc287e05d51c2b9d4eb9e19e09e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251015.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251015.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251016.mbo.dbn.zst",
+            "size": 127089404,
+            "hash": "sha256:b1ccf191d1d97a09397fa30983fd278ec182919e0f63251a3e83ec4ef6bf8e41",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251016.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251016.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251017.mbo.dbn.zst",
+            "size": 129188775,
+            "hash": "sha256:713195405613b260fb5d5a2025e9bda8948ab5804d6e1c9fd4314dad150f7e12",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251017.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251017.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251020.mbo.dbn.zst",
+            "size": 65308387,
+            "hash": "sha256:99a0bd7e2304d2247dc340ea3bd80cb6015e942a955b8394b90c3f44ecc91935",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251020.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251020.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251021.mbo.dbn.zst",
+            "size": 67063228,
+            "hash": "sha256:9dd406d337b349fbfec5a076bd97c38c9ea7ed334f8e6bf340fc32d86cd34309",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251021.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251021.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251022.mbo.dbn.zst",
+            "size": 78216157,
+            "hash": "sha256:be1c27e46fdb0b9b391573e69934fd457d25bf6b65bb1d7c66459b881adf61ca",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251022.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251022.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251023.mbo.dbn.zst",
+            "size": 47488240,
+            "hash": "sha256:fd78a3fc5c34ad2fea6a3aba01fe88f492420581c51b126ecbcde3ba93380471",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251023.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251023.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251024.mbo.dbn.zst",
+            "size": 54470156,
+            "hash": "sha256:1ce7a7587adc6c63e1d38d25b7613de25e4aa8352673352b635a36f966ea4dca",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251024.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251024.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251027.mbo.dbn.zst",
+            "size": 60182871,
+            "hash": "sha256:df7c3f2ab748d851e833b2aefd273444facd8f859df18f4a5dc58fa64965b86a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251027.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251027.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251028.mbo.dbn.zst",
+            "size": 105292252,
+            "hash": "sha256:a828317c96bfbe284db0fa7daa1a9bea892fa90d002e5871e352edff43ed6941",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251028.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251028.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251030.mbo.dbn.zst",
+            "size": 105608510,
+            "hash": "sha256:9c0ad6d2a9d3666abaf269fff7658c1cdcb2a4e2f082d790b72f8cbf57974ee8",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251030.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251030.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251029.mbo.dbn.zst",
+            "size": 132879570,
+            "hash": "sha256:21823e6b495c466baef683960cf3b38d8f0b5de7ccc5cd3e867444ef27a476e2",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251029.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251029.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251103.mbo.dbn.zst",
+            "size": 75276644,
+            "hash": "sha256:624a9d2f8159d42f51603a6f37dc60d9b6eea213c5952758e3f2754e903d3599",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251103.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251103.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251031.mbo.dbn.zst",
+            "size": 90922039,
+            "hash": "sha256:5d1a8f7697d10c33868e5571686a8d8635b30fef7b0bae6bf73e23c0d9c44a03",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251031.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251031.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251105.mbo.dbn.zst",
+            "size": 80679792,
+            "hash": "sha256:7ecfcab2c3b02b0f451e9709644081a956c91cc9a4740888d9088f97fe4265ef",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251105.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251105.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251104.mbo.dbn.zst",
+            "size": 105265541,
+            "hash": "sha256:7dfaeda0e74d969baad4fefe8ea76843b3d6ae080c3465d89832e1203b59eca5",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251104.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251104.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251106.mbo.dbn.zst",
+            "size": 152339032,
+            "hash": "sha256:a522a5479e0feb37b1913049ce729794c6b26ddae24588860e932332f5a8b2ad",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251106.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251106.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251107.mbo.dbn.zst",
+            "size": 155148247,
+            "hash": "sha256:1cebca5435e7485d021f2fbf6fa9285706fa27fabb25a1bd2281fa2eb084695b",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251107.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251107.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251110.mbo.dbn.zst",
+            "size": 85475899,
+            "hash": "sha256:4159f5160e4c6e3d6051874b3ea130830d2d0653a0e1d2c12f458602d00c21a9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251110.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251110.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251111.mbo.dbn.zst",
+            "size": 103286433,
+            "hash": "sha256:44dd38a1d5e2608d321615f605e98c2a16bdfc6c39883ba6e8f4bbba680721a9",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251111.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251111.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251112.mbo.dbn.zst",
+            "size": 106670799,
+            "hash": "sha256:baec99c0d82b0188a3215fcb880e2248a5b1fd34a2fe30d6fdf19deeef098741",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251112.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251112.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251113.mbo.dbn.zst",
+            "size": 155460967,
+            "hash": "sha256:1c754d56c883b326f121960c9bc0b9b657c89f529e2a70bf6be92ee3c5e9d089",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251113.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251113.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251114.mbo.dbn.zst",
+            "size": 135780048,
+            "hash": "sha256:3c3c144c10aa884f2de6741ad86dae17628e5bf2870db6c9fc08c2bdd2dbf9bb",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251114.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251114.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251117.mbo.dbn.zst",
+            "size": 148267288,
+            "hash": "sha256:79c81b9a7385c81dab992cd8de056d2454e5c4d2aa801c49923ee1561c499a0d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251117.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251117.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251118.mbo.dbn.zst",
+            "size": 158754928,
+            "hash": "sha256:d24193c1cd5277abd301b2b03ccc1c9d9afc28ed17199c7e2094bd44d92a4e6c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251118.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251118.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251119.mbo.dbn.zst",
+            "size": 179086448,
+            "hash": "sha256:421da777092e9fc2678e5a2f013447615e9ecde57e84a3d5ec0b0afe9916cbcb",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251119.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251119.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251120.mbo.dbn.zst",
+            "size": 210908761,
+            "hash": "sha256:3dc9e1de252bd3e868fa0a08b7554657ebddd07270cb0abf6f061b6de4c4a2e5",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251120.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251120.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251124.mbo.dbn.zst",
+            "size": 129395653,
+            "hash": "sha256:73d25d6a754cbc6e31be55817025f12e911fbf1d25d7f1b0832cbcfbd5d14917",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251124.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251124.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251121.mbo.dbn.zst",
+            "size": 247515075,
+            "hash": "sha256:144eef5637274cae558aa58dddc82adc626569ca31ed9b398c9099df97e5aa53",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251121.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251121.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251125.mbo.dbn.zst",
+            "size": 153774574,
+            "hash": "sha256:63cf54c99296e709171d48a1b811626cd5abb97956d3aed231d68e37fbab31e5",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251125.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251125.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251126.mbo.dbn.zst",
+            "size": 97472678,
+            "hash": "sha256:ba582ff91e545a32fd8e2db0992901196622a2012c64f899e2dd3f4b36289dad",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251126.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251126.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251128.mbo.dbn.zst",
+            "size": 40135815,
+            "hash": "sha256:480fcb40505371a8bc699de7037fa112fcfc8e009cc82746759832e3beef0816",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251128.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251128.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251201.mbo.dbn.zst",
+            "size": 92000787,
+            "hash": "sha256:791e53cce4433808e6ea4e270fb4f9e7937efe58e6aeac1db311c4499146e561",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251201.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251201.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251202.mbo.dbn.zst",
+            "size": 80918256,
+            "hash": "sha256:355d8e751fa0bbe1ee289d0a6b69b9eeeedda3144bd6044454504e0c81599e0e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251202.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251202.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251203.mbo.dbn.zst",
+            "size": 85575161,
+            "hash": "sha256:77968cea4dcd76bc02d22401ca60f4e69c0122fa18b916af4bba5d47edd44a5a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251203.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251203.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251204.mbo.dbn.zst",
+            "size": 81386188,
+            "hash": "sha256:dbeb4be6dffca5523035d6a2da1e469e38152978114f3c4073293776c4a8e363",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251204.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251204.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251205.mbo.dbn.zst",
+            "size": 79068383,
+            "hash": "sha256:25afd08c4bd26bf87546fc2239a4eb6328387296edc916ba2e64545abf1e714d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251205.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251205.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251208.mbo.dbn.zst",
+            "size": 100133106,
+            "hash": "sha256:d87a72842e9dd3ad72170975cc649c30360edd27f01dcd0f0630575ed9bac9bf",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251208.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251208.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251209.mbo.dbn.zst",
+            "size": 62366086,
+            "hash": "sha256:53d62ddc2954467355c099c9f9f19148c1a02b38edc811f43ca2bd2df7727814",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251209.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251209.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251210.mbo.dbn.zst",
+            "size": 84688374,
+            "hash": "sha256:a41344ed5b3a9ca5033452125085853f291a7a6bae850cc8f1162741cbd08cd6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251210.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251210.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251211.mbo.dbn.zst",
+            "size": 92173754,
+            "hash": "sha256:8ccd8732f1a9d284cd1adff60eec5571191c730e802fa78d121e9b61d3cf7a3d",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251211.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251211.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251212.mbo.dbn.zst",
+            "size": 134264760,
+            "hash": "sha256:2f5dfb19d7b331214fdddc5ccecb802d6ff42ff539819492f01a34531a1315e5",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251212.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251212.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251215.mbo.dbn.zst",
+            "size": 107197153,
+            "hash": "sha256:d2f6e5e568687dbdc6c3a04540c75989bc0e4b6003b4b9f2f656f3375fec11ff",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251215.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251215.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251216.mbo.dbn.zst",
+            "size": 92433515,
+            "hash": "sha256:ec4269b70fe9b3d8acdebb2b907ac0968d63a6241df3729ebff4c99d9f5d247a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251216.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251216.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251217.mbo.dbn.zst",
+            "size": 115077149,
+            "hash": "sha256:b68ad9d19d82cb63ca5fc0500f196efe9d921db1d495c591297502110466fc4a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251217.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251217.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251219.mbo.dbn.zst",
+            "size": 68562993,
+            "hash": "sha256:3c7a8d367530c0e4cc7d20d4bca93df1f88ae9d0ad8043e447f92c4b817925c6",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251219.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251219.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251218.mbo.dbn.zst",
+            "size": 103986264,
+            "hash": "sha256:24757bbbbedad4e42c39ed208b61c282f8a2631f883739aeb71eac870978ca6e",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251218.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251218.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251223.mbo.dbn.zst",
+            "size": 55934094,
+            "hash": "sha256:f6f53d47c20812f523fee8b108c9d4937f8db94ae1fb77ab9b0f490d3fda7677",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251223.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251223.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251222.mbo.dbn.zst",
+            "size": 58989010,
+            "hash": "sha256:16a7c56666b48f71bab3fcb005b9bc32cf4c32713b1b8aa17c99f9d826be875a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251222.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251222.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251224.mbo.dbn.zst",
+            "size": 23512810,
+            "hash": "sha256:f1ca52e53e86ba6e578439be8df1897b384f5adc41803752857fe5c03c3471f1",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251224.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251224.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251226.mbo.dbn.zst",
+            "size": 53915591,
+            "hash": "sha256:177dd8955db81033e5ae0b811ee29fa6e73f18e325ae5bffb6517e70abaaf05a",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251226.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251226.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251229.mbo.dbn.zst",
+            "size": 50013370,
+            "hash": "sha256:0f77d4beb8b6cd892ec2a80dcd24a015da4fd5fbc91d2037d1228afde1c35393",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251229.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251229.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251230.mbo.dbn.zst",
+            "size": 31340057,
+            "hash": "sha256:bef7ca5967633d7b820f6bf8fe31eeb4cd5fa4858d0945a98ad932ce91e70775",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251230.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251230.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20251231.mbo.dbn.zst",
+            "size": 45538776,
+            "hash": "sha256:56e61af725ad7316720cee68af7880edb108c7a73281642922d711ffbe3c5d0c",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251231.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20251231.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20260102.mbo.dbn.zst",
+            "size": 85128964,
+            "hash": "sha256:b378555663f810cc13b01a5a1f714e0fffa4a1d7007e800482a028ab201bbfa7",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20260102.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20260102.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20260105.mbo.dbn.zst",
+            "size": 74162649,
+            "hash": "sha256:6369a1469d489ce5d8945297babc743c08e236041594da23c8c50d680e824974",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20260105.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20260105.mbo.dbn.zst"
+            }
+        },
+        {
+            "filename": "arcx-pillar-20260106.mbo.dbn.zst",
+            "size": 88828957,
+            "hash": "sha256:09711f0572da0e48a658a89cfed564390b3b9ba6360d2d4f208c610e068340c5",
+            "urls": {
+                "https": "https://api.databento.com/v0/batch/download/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20260106.mbo.dbn.zst",
+                "ftp": "ftp://ftp.databento.com/X6LP46S6/ARCX-20260310-SL7HXGYF75/arcx-pillar-20260106.mbo.dbn.zst"
+            }
+        }
+    ]
+}

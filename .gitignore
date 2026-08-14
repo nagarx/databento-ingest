@@ -1,8 +1,28 @@
 # Credentials — NEVER commit
 credentials.toml*
 
-# Databento job artifacts (contain API-specific URLs, local data)
-jobs/
+# Databento job artifacts.
+#
+# The PAYLOADS stay ignored (hundreds of GB of .dbn.zst). The RECEIPTS do not:
+# manifest/condition/metadata .json are PROVIDER receipts -- they carry the per-file
+# SHA-256 checksums and the acquisition provenance, and they are NOT locally
+# regenerable. Re-deriving one means re-downloading from Databento.
+#
+# The blanket `jobs/` rule was written to exclude payloads and took the receipts with
+# it. Measured 2026-08-14: 34 receipts / 1.5 MB, all nlink=1 and in NO git object --
+# including the 147,197 B GLBX manifest a previous session spent its effort rescuing
+# from a script that would have atomically overwritten it.
+#
+# Secret-scanned before un-ignoring: 0 hits for api_key/token/secret/bearer/password;
+# every 28+ char string is a 64-hex SHA-256; URLs are api.databento.com batch-download
+# paths with NO query strings, so no credential is embedded. `credentials.toml*` stays
+# ignored by its own rule at line 2 and is unaffected by anything below.
+jobs/*
+!jobs/*/
+jobs/*/*
+!jobs/*/manifest.json
+!jobs/*/condition.json
+!jobs/*/metadata.json
 
 # Virtual environment
 .venv/
